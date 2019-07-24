@@ -1,10 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import AnimalsContainer from "./animalsContainer";
-import App from "./app.js";
+import Welcome from "./welcome";
+// import Registration from "./registration";
 
-ReactDOM.render(<App />, document.querySelector("main"));
+let elem;
 
-export default function HelloWorld() {
-    return <div>Hello, World!</div>;
+if (location.pathname == "/welcome") {
+    elem = <Welcome />;
+} else {
+    elem = <img src={"./doggy.jpg"} />;
 }
+
+ReactDOM.render(elem, document.querySelector("main"));
