@@ -12,8 +12,11 @@ export default class Welcome extends React.Component {
         return (
             <HashRouter>
                 <div className="mainContainer">
-                    <h1 id="networkName">Wazaaaaap</h1>
-                    <img className="zucky" src={"./zucky.png"} />
+                    <div className="wrap">
+                        <div className="mainTextWrapper">
+                            <h1 id="networkName">MtG LC&DB</h1>
+                        </div>
+                    </div>
                     <div>
                         <Route exact path="/" component={Registration} />
                         <Route path="/login" component={Login} />

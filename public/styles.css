@@ -1,41 +1,94 @@
+body {
+    margin: 0;
+    overflow-x: hidden;
+    background-image: url("nicky.jpg");
+    background-repeat: no-repeat;
+    color: white;
+    font-family: "Quicksand", sans-serif;
+    min-height: 100vh;
+    max-height: 100vh;
+}
+#background {
+    height: 667px;
+    position: absolute;
+}
+.wrap {
+    height: 230px;
+}
+.shadowWrapper {
+    background-color: rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+.mainTextWrapper {
+    position: absolute;
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid white;
+    width: 50%;
+    margin-top: 40px;
+    margin-left: 25%;
+    margin-right: 25%;
+    height: 60px;
+}
 .mainContainer {
     width: 100vw;
+    height: 667px;
+}
+.registerIntro {
+    color: orange;
+    text-align: center;
 }
 
 #networkName {
+    margin: 0 auto;
     text-align: center;
 }
-
 .inputField {
     margin: 0 auto;
-    width: 25%;
     display: flex;
     flex-direction: column;
 }
-input {
+.inputRegistration {
+    margin-top: 7px;
+    border-style: none;
+    background: rgba(0, 0, 0, 0.4);
     width: 50%;
     margin-left: 25%;
     margin-right: 25%;
+    border-bottom: 2px solid white;
+    color: white;
 }
 button {
+    font-family: "Quicksand", sans-serif;
     text-align: center;
     width: 20%;
     margin-left: 40%;
     margin-right: 40%;
 }
 
-.zucky {
-    height: 20%;
-    width: 20%;
-    margin-left: 40%;
-    margin-right: 40%;
-    margin-bottom: 20px;
-}
 .loggedInZucky {
-    height: 7%;
-    width: 7%;
+    border: 1px solid white;
+    border-radius: 10px;
+    height: 6%;
+    width: 6%;
 }
 .error {
     text-align: center;
     margin-bottom: 10px;
+    color: yellow;
+}
+.loginLink {
+    color: #a3b86c;
+    text-decoration: none;
+    text-align: center;
+}
+h1 {
+    text-align: center;
+}
+::placeholder {
+    color: white;
+    font-family: "Quicksand", sans-serif;
 }

@@ -8,7 +8,6 @@ export default class Registration extends React.Component {
         this.state = {};
     }
     submit() {
-        console.log("juhuhuhu", this.state);
         axios
             .post("/register", {
                 first: this.state.first,
@@ -36,14 +35,22 @@ export default class Registration extends React.Component {
     render() {
         return (
             <div className="inputField">
+                <div className="shadowWrapper">
+                    <h4 className="registerIntro">
+                        Register for free to use Magic the Gathering Life
+                        Counter & Deck Builder
+                    </h4>
+                </div>
                 {this.state.error && <div className="error">Oops</div>}
                 <input
+                    className="inputRegistration"
                     name="first"
                     placeholder="first"
                     onChange={e => this.handleChange(e)}
                 />
                 <br />
                 <input
+                    className="inputRegistration"
                     name="last"
                     placeholder="last"
                     onChange={e => this.handleChange(e)}
@@ -51,6 +58,8 @@ export default class Registration extends React.Component {
                 <br />
 
                 <input
+                    className="inputRegistration"
+                    type="email"
                     name="email"
                     placeholder="email"
                     onChange={e => this.handleChange(e)}
@@ -58,6 +67,9 @@ export default class Registration extends React.Component {
                 <br />
 
                 <input
+                    className="inputRegistration"
+                    autoComplete="new-password"
+                    type="password"
                     name="password"
                     placeholder="password"
                     onChange={e => this.handleChange(e)}
@@ -66,10 +78,11 @@ export default class Registration extends React.Component {
 
                 <button onClick={e => this.submit(e)}>Register</button>
                 <br />
-
-                <Link to="/login">
-                    If you already have an account, you can log in here.
-                </Link>
+                <div className="shadowWrapper">
+                    <Link className="loginLink" to="/login">
+                        If you already have an account, you can log in here.
+                    </Link>
+                </div>
             </div>
         );
     }

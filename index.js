@@ -42,6 +42,7 @@ app.get("/welcome", (req, res) => {
     }
 });
 
+//DO NOT DELTE THIS sendFile
 app.get("*", (req, res) => {
     if (!req.session.userId) {
         res.redirect("/welcome");
@@ -51,6 +52,16 @@ app.get("*", (req, res) => {
 });
 
 app.post("/register", (req, res) => {
+    // const { first, last, email, password} = req.body;
+    // try {
+    //let hash = await bc.hashPasword(password);
+    //let user = await db.addUser(first, last, email, hash);
+    // req.session.userId = user.rows[0].id;
+    //res.json({success:true});
+    // } catch (err) {
+    //     console.log("err in post registration:", err.message);
+    // }
+
     bc.hashPassword(req.body.password)
         .then(hash => {
             db.addUser(req.body.first, req.body.last, req.body.email, hash)
@@ -78,17 +89,11 @@ app.post("/register", (req, res) => {
 });
 
 app.post("/login", (req, res) => {
-    console.log("let's check this out: ", req.body);
     db.getEmail(req.body.email)
         .then(results => {
-            console.log(
-                "these are the results I am looking for when getting the user: ",
-                results.rows
-            );
             bc.checkPassword(req.body.password, results.rows[0].password).then(
                 matched => {
                     if (matched) {
-                        console.log("results", results);
                         req.session.userId = results.rows[0].id;
                         res.json({
                             data: results.rows[0],

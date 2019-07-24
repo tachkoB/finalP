@@ -30,22 +30,34 @@ export default class Login extends React.Component {
     render() {
         return (
             <div className="inputField">
+                <div className="shadowWrapper">
+                    <h4 className="registerIntro">
+                        Fill in your email and address to access your account.
+                    </h4>
+                </div>
                 {this.state.error && (
-                    <div className="error">
-                        Please enter correct email and address.
+                    <div className="error shadowWrapper">
+                        <h4>Please enter the correct email and password.</h4>
                     </div>
                 )}
                 <input
+                    className="inputRegistration"
+                    type="email"
                     name="email"
                     placeholder="email"
                     onChange={e => this.handleChange(e)}
                 />
+                <br />
                 <input
+                    autoComplete="new-password"
+                    className="inputRegistration"
+                    type="password"
                     name="password"
                     placeholder="password"
                     onChange={e => this.handleChange(e)}
                 />
-                <button onClick={e => this.submit(e)}>Submit</button>
+                <br />
+                <button onClick={e => this.submit(e)}>Log in</button>
             </div>
         );
     }
