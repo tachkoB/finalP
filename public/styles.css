@@ -1,0 +1,41 @@
+.mainContainer {
+    width: 100vw;
+}
+
+#networkName {
+    text-align: center;
+}
+
+.inputField {
+    margin: 0 auto;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+}
+input {
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+button {
+    text-align: center;
+    width: 20%;
+    margin-left: 40%;
+    margin-right: 40%;
+}
+
+.zucky {
+    height: 20%;
+    width: 20%;
+    margin-left: 40%;
+    margin-right: 40%;
+    margin-bottom: 20px;
+}
+.loggedInZucky {
+    height: 7%;
+    width: 7%;
+}
+.error {
+    text-align: center;
+    margin-bottom: 10px;
+}
