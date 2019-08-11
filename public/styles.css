@@ -131,6 +131,7 @@ h1 {
 .midBar {
     background-color: gray;
     height:10vh;
+    text-align: center;
 }
 .gameContainer {
     display:grid;
@@ -172,3 +173,16 @@ h1 {
     -ms-transform: rotate(180deg);
     transform: rotate(180deg);
   }
+  .modal {
+      font-size:25px;
+      width: 100vw;
+      height:20vh;
+      position:absolute;
+      top:40vh;
+      background-color:black;
+      display:grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      text-align: center;
+      align-items: center;
+    }
+  

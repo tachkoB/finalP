@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "./axios";
-import { Link } from "react-router-dom";
+import Modal from "./modal";
 
 export default function NewGame() {
 
     const [count, setCount] = useState(20);
     const [countTwo, setCountTwo] = useState(20);
-
+    const [visible, setVisible] = useState(false);
 
     return (
 
@@ -25,7 +25,11 @@ export default function NewGame() {
                 </div>
             </div>
 
-            <div className="midBar">Tu ce doc ikona</div>
+            <div className="midBar" onClick={()=>setVisible(true)}>Tu ce doc ikona</div>
+
+            {visible && (
+                <Modal />
+            )}
 
             <div className="playerTwo">
                 <div className="gameContainer">

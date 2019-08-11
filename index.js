@@ -5,6 +5,9 @@ const db = require("./utils/db");
 const bc = require("./utils/bc");
 const csurf = require("csurf");
 const cookieSession = require("cookie-session");
+const config = require("./config");
+const s3 = require("./s3");
+
 
 app.use(
     cookieSession({
@@ -23,6 +26,28 @@ app.use(require("body-parser").json());
 app.use(express.static("./public"));
 
 app.use(compression());
+
+var multer = require("multer");
+var uidSafe = require("uid-safe");
+var path = require("path");
+
+var diskStorage = multer.diskStorage({
+    destination: function(req, file, callback) {
+        callback(null, __dirname + "/uploads");
+    },
+    filename: function(req, file, callback) {
+        uidSafe(24).then(function(uid) {
+            callback(null, uid + path.extname(file.originalname));
+        });
+    }
+});
+
+var uploader = multer({
+    storage: diskStorage,
+    limits: {
+        fileSize: 2097152
+    }
+});
 
 if (process.env.NODE_ENV != "production") {
     app.use(

@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "./axios";
 import { Route, BrowserRouter, Link } from "react-router-dom";
+import NewGame from "./newgame";
 
 
 export default function Homepage() {
@@ -10,14 +11,16 @@ export default function Homepage() {
                 <BrowserRouter>
                     <div className="homepageSmallContainer">
                         <div className="linkContainerHomepage">
-                            <Link className="linkHomepage" to="/play">New game</Link>
+                            <Link to="/play" className="linkHomepage">New game</Link>
                         </div>
                         <div className="linkContainerHomepage">
-                            <Link className="linkHomepage" to="/deckbuild">Build decks</Link>
+                            <Link to="/deckbuild" className="linkHomepage">Build decks</Link>
                         </div>
                         <div className="linkContainerHomepage">
-                            <Link className="linkHomepage" to="/stats">Stats</Link>
+                            <Link to="/stats" className="linkHomepage">Stats</Link>
                         </div>
+                        <Route path="/play" component={NewGame} />
+
                     </div>
                 </BrowserRouter>
                 <div className="linkContainerHomepage">

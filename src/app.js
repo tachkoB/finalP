@@ -3,8 +3,7 @@ import axios from "./axios";
 import { Route, BrowserRouter, Link } from "react-router-dom";
 import Homepage from "./homepage";
 import NewGame from "./newgame";
-import DeckBuilder from "./deckbuilder";
-import Stats from "./stats";
+
 
 export default class App extends React.Component {
     constructor(props) {
@@ -39,10 +38,9 @@ export default class App extends React.Component {
                                     />
                                 );
                             }}
-                        />
-
+                        />   
                         <Route path="/play" component={NewGame} />
-              
+           
                     </div>
                 </BrowserRouter>
             </div>
