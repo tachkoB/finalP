@@ -41,6 +41,24 @@ app.get("/welcome", (req, res) => {
         res.sendFile(__dirname + "/index.html");
     }
 });
+app.get("/logout", (req, res)=>{
+    req.session=null;
+    res.redirect("/welcome");
+});
+
+app.get("/users", (req, res) => {
+    db.getUser(req.session.userId)
+        .then(results => {
+            console.log("the results from getting user: ", results.rows[0]);
+            res.json({
+                data: results.rows[0],
+                success: true
+            });
+        })
+        .catch(err => {
+            console.log("getting user info error: ", err.message);
+        });
+});
 
 //DO NOT DELTE THIS sendFile
 app.get("*", (req, res) => {

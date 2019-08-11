@@ -12,3 +12,10 @@ exports.addUser = function addUser(first, last, email, password) {
 exports.getEmail = function getEmail(email) {
     return db.query(`SELECT * FROM users WHERE email = ($1)`, [email]);
 };
+
+exports.getUser = function getUser(id) {
+    return db.query(
+        `SELECT id, first FROM users WHERE id=($1)`,
+        [id]
+    );
+};

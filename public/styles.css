@@ -92,3 +92,83 @@ h1 {
     color: white;
     font-family: "Quicksand", sans-serif;
 }
+.homepageSmallContainer {
+    display:flex;
+    flex-direction: column;
+}
+.homepageBigContainer {
+    width:30%;
+    margin-left:35%;
+    margin-right:35%;
+    height:30%;
+}
+.linkHomepage {
+    color:white;
+    text-decoration: none;
+
+}
+.linkContainerHomepage {
+    border:2px solid white;
+    border-radius:25px;
+    text-align: center;
+    margin:10px;
+    background-color: black;
+}
+.homepageMain {
+    height: 100vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.playerOne{
+    height:45vh;
+    background-color: red;
+}
+.playerTwo{
+    height:45vh;
+    background-color: green;
+}
+.midBar {
+    background-color: gray;
+    height:10vh;
+}
+.gameContainer {
+    display:grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    text-align: center;
+    height:100%;
+    align-items: center;
+}
+.plus {
+    background-color: blue;
+    padding:10px;
+    text-align: center;
+    font-size:30px;    
+    display:inline;
+    border: 1px solid white;
+    border-radius: 25%;
+}
+.minus {   
+    background-color: black;
+    padding:10px;
+    text-align: center;
+    font-size:30px;
+    display:inline;
+    border: 1px solid white;
+    border-radius: 25%;
+}
+.lifeTotal{
+    padding:10px;
+    text-align: center;
+    font-size: 50px;
+    display:inline;
+    border: 1px solid white;
+    border-radius: 50%;
+}
+.reverse {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
