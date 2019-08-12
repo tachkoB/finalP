@@ -7,6 +7,8 @@ const csurf = require("csurf");
 const cookieSession = require("cookie-session");
 const config = require("./config");
 const s3 = require("./s3");
+const mtg = require('mtgsdk');
+
 
 
 app.use(
@@ -66,6 +68,21 @@ app.get("/welcome", (req, res) => {
         res.sendFile(__dirname + "/index.html");
     }
 });
+
+app.get("/searchCards/:str.json", (req, res) => {
+    console.log("the req params string: ", req.params.str);
+
+    mtg.card.where({ name:req.params.str })
+        .then(cards => {
+            console.log("I need this", cards[0].name); 
+            let results = cards[0].name;
+            res.json(results);
+        })    
+        .catch(err => {
+            console.log("error in searching for users by name: ", err.message);
+        });
+});
+
 app.get("/logout", (req, res)=>{
     req.session=null;
     res.redirect("/welcome");

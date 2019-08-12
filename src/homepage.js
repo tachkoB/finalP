@@ -13,7 +13,7 @@ export default function Homepage() {
                         <Link to="/play" className="linkHomepage">New game</Link>
                     </div>
                     <div className="linkContainerHomepage">
-                        <Link to="/deckbuild" className="linkHomepage">Build decks</Link>
+                        <Link to="/deckbuilder" className="linkHomepage">Build decks</Link>
                     </div>
                     <div className="linkContainerHomepage">
                         <Link to="/stats" className="linkHomepage">Stats</Link>
