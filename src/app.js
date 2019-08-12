@@ -40,7 +40,6 @@ export default class App extends React.Component {
                             }}
                         />   
                         <Route path="/play" component={NewGame} />
-           
                     </div>
                 </BrowserRouter>
             </div>

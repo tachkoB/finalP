@@ -8,25 +8,22 @@ export default function Homepage() {
     return (
         <div className ="homepageMain">
             <div className="homepageBigContainer">
-                <BrowserRouter>
-                    <div className="homepageSmallContainer">
-                        <div className="linkContainerHomepage">
-                            <Link to="/play" className="linkHomepage">New game</Link>
-                        </div>
-                        <div className="linkContainerHomepage">
-                            <Link to="/deckbuild" className="linkHomepage">Build decks</Link>
-                        </div>
-                        <div className="linkContainerHomepage">
-                            <Link to="/stats" className="linkHomepage">Stats</Link>
-                        </div>
-                        <Route path="/play" component={NewGame} />
-
+                <div className="homepageSmallContainer">
+                    <div className="linkContainerHomepage">
+                        <Link to="/play" className="linkHomepage">New game</Link>
                     </div>
-                </BrowserRouter>
+                    <div className="linkContainerHomepage">
+                        <Link to="/deckbuild" className="linkHomepage">Build decks</Link>
+                    </div>
+                    <div className="linkContainerHomepage">
+                        <Link to="/stats" className="linkHomepage">Stats</Link>
+                    </div>
+                </div>
                 <div className="linkContainerHomepage">
                     <a href="/logout" className="linkHomepage">Exit</a>
                 </div>
             </div>
         </div>
+
     );
 }
