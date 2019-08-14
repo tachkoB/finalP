@@ -296,5 +296,14 @@ h1 {
 }
 .totalContainer {
     background-color: rgba(0, 0, 0, 0.3);
-
+}
+.deckListContainer{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.deckContainer{
+    border:2px solid green;
+    height:100px;
+    width:100px;
+    padding:10px;
 }

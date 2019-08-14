@@ -152,9 +152,13 @@ export default function(state = {}, action) {
             maincard: []
         };
     }
+    if(action.type == "GET_DECKS"){
+        return {
+            ...state,
+            decks: action.decks
+        };    
+    }
     return state;
 }   
 
 
-
- 

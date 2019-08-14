@@ -93,6 +93,17 @@ export function setInitialCard(){
         cardnrtwo: 1
     };
 }
+export async function getDecks() {
+    const { data } = await axios.get("/getDecks");
+    console.log("data in action     yolo:", data);
+    return {
+        type: "GET_DECKS",
+        decks: data.data
+    };
+}
+
+
+
 export async function addDeck(deckname, maindeck, sidedeck){  
     const { data } = await axios.post("/newdeck", {
         deckname: deckname,

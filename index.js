@@ -132,6 +132,15 @@ app.get("/users", (req, res) => {
         });
 });
 
+app.get("/getDecks", (req, res)=>{
+    db.getDecks(req.session.userId).then(results=>{
+        console.log("results from getting the decks: ", results.rows);
+        res.json({
+            data:results.rows
+        });
+    });
+});
+
 //DO NOT DELTE THIS sendFile
 app.get("*", (req, res) => {
     if (!req.session.userId) {
