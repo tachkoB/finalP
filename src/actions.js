@@ -1,3 +1,5 @@
+import axios from "./axios";
+
 export function setInitial() {
     return {
         type: "SET_INITIAL",
@@ -89,5 +91,15 @@ export function setInitialCard(){
         type: "SET_CARD",
         cardnr: 1,
         cardnrtwo: 1
+    };
+}
+export async function addDeck(deckname, maindeck, sidedeck){  
+    const { data } = await axios.post("/newdeck", {
+        deckname: deckname,
+        mainboard: maindeck,
+        sideboard: sidedeck
+    });
+    return {
+        type: "ADD_DECK"
     };
 }

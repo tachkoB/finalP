@@ -30,3 +30,14 @@ exports.findCard = function findCard(str) {
         [str + "%"]
     );
 };
+
+exports.addDeckName = function addDeckName(name, id){
+    return db.query(`INSERT INTO decks (name, user_id) VALUES ($1, $2) RETURNING id`, [name, id]);
+};
+
+exports.addMainboard = function addMainboard(name, cardnr, id){
+    return db.query(`INSERT INTO mainboard_cards (cardname, number, deck_id) VALUES ($1, $2, $3) RETURNING deck_id`, [name, cardnr, id]);
+};
+exports.addSideboard = function addSideboard(name, cardnr, id){
+    return db.query(`INSERT INTO sideboard_cards (cardname, number, deck_id) VALUES ($1, $2, $3)`, [name, cardnr, id]);
+};

@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "./axios";
-import { setInitialCard, addMainboard, addSideboard, incrementCard, decrementCard, incrementCardTwo, decrementCardTwo } from "./actions";
+import { setInitialCard, addMainboard, addSideboard, incrementCard, decrementCard, incrementCardTwo, decrementCardTwo, addDeck } from "./actions";
 
 
 export default function NewDeck() {
@@ -12,6 +12,9 @@ export default function NewDeck() {
     const [valtwo, setValTwo] = useState();
     const [cardcount, setCardCount] = useState();
     const [cardcounttwo, setCardCountTwo] = useState();
+    const [deckname, setDeckName] = useState();
+
+
     const maincard = useSelector(state => state.maincard);
     const sidecard = useSelector(state=> state.sidecard);
 
@@ -91,13 +94,16 @@ export default function NewDeck() {
     const onChangeTwo = e => {
         setValTwo(e.target.value);
     };
+    const deckName = e => {
+        setDeckName(e.target.value);
+    };
 
     return (
 
         <div>
             <div className="headerDeck">
                 <p className="pInDeck">Name of your deck:</p>
-                <input type="text" className="inputDeck inputRegistration" placeholder="deck name" name="deckname"/> 
+                <input type="text" onChange={deckName} className="inputDeck inputRegistration" placeholder="deck name" name="deckname"/> 
             </div>
             <br/>
             <div className="inputContainer">
@@ -157,7 +163,7 @@ export default function NewDeck() {
                     <div className="cardtotal"> <p className = "totalContainer">Sideboard total: {cardcounttwo}</p></div>
                 </div>
             </div>
-            <button>Save</button>
+            <button onClick={e => dispatch(addDeck(deckname, maincard, sidecard))}>Save</button>
         </div>
     );
 }

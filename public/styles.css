@@ -54,7 +54,7 @@ body {
 .inputRegistration {
     margin-top: 7px;
     border-style: none;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.5);
     width: 50%;
     margin-left: 25%;
     margin-right: 25%;
@@ -196,14 +196,14 @@ h1 {
       height:100%;
       background-color: red;
       overflow-y:auto;
-      background-color: rgba(0, 0, 0, 0.3);
+      background-color: rgba(0, 0, 0, 0.5);
       border-right: 1px solid white;
 
   }
   .sideboardContainer {
     width:50%;
     height:100%;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.5);
     overflow-y:auto;
     border-left: 1px solid white;
 
@@ -250,10 +250,11 @@ h1 {
 }
 
 .addCard {
-    max-width:80%;
+    max-width:100%;
     text-align:center;
     margin-top: 2px;
     margin-bottom: 2px;
+    padding-right:2px,
 
 }
 .smallHolder {

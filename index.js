@@ -8,7 +8,6 @@ const cookieSession = require("cookie-session");
 const config = require("./config");
 const s3 = require("./s3");
 const mtg = require('mtgsdk');
-const scryfall = require("./scryfall-default-cards");
 
 app.use(
     cookieSession({
@@ -205,6 +204,26 @@ app.post("/login", (req, res) => {
             });
         });
 });
+
+app.post("/newdeck", (req, res)=>{
+    console.log("my id", req.session.userId);
+    let maincards = req.body.mainboard;
+    let sidecards = req.body.sideboard;
+    console.log("I need to check if this is alright: ", req.body.deckname, req.session.userId);
+
+    db.addDeckName(req.body.deckname, req.session.userId).then(results=>{
+        let pass = results.rows[0].id;
+        maincards.forEach((el)=>{
+            db.addMainboard(el.maincard, el.cardnr, pass);
+        });
+        sidecards.forEach((el)=>{
+            db.addSideboard(el.sidecard, el.cardnrtwo, pass);
+        });
+    }).catch(err=>{
+        console.log("the error in adding the deck: ", err.message);
+    });
+});
+
 
 app.listen(8080, function() {
     console.log("I'm listening.");
