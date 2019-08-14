@@ -18,11 +18,6 @@ export default function NewDeck() {
     const maincard = useSelector(state => state.maincard);
     const sidecard = useSelector(state=> state.sidecard);
 
-    // const cardnr = useSelector(state=>state.cardnr);
-    // const cardnrtwo = useSelector(state=>state.cardnrtwo);
- 
-
-
     useEffect(() => {
         dispatch(setInitialCard());
     }, []);
@@ -41,7 +36,6 @@ export default function NewDeck() {
         },
         [val]
     );
-
 
     useEffect (()=>{
         if (maincard){
@@ -70,7 +64,6 @@ export default function NewDeck() {
     [sidecard]
     );
  
-
     useEffect(
         () => {
             if (valtwo) {
@@ -99,7 +92,6 @@ export default function NewDeck() {
     };
 
     return (
-
         <div>
             <div className="headerDeck">
                 <p className="pInDeck">Name of your deck:</p>

@@ -145,8 +145,16 @@ export default function(state = {}, action) {
             )
         };
     }
-    
+    if(action.type == "ADD_DECK"){
+        console.log("this works or not");   
+        return {
+            sidecard: [],
+            maincard: []
+        };
+    }
     return state;
 }   
+
+
 
  
