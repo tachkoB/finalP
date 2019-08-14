@@ -4,9 +4,13 @@ body {
     background-image: url("nicky.jpg");
     background-repeat: no-repeat;
     color: white;
-    font-family: "Quicksand", sans-serif;
+    font-family: myFirstFont;
     min-height: 100vh;
     max-height: 100vh;
+}
+@font-face {
+    font-family: myFirstFont;
+    src:url("LeagueSpartan-Bold.otf");
 }
 #background {
     height: 667px;
@@ -62,7 +66,7 @@ body {
     color:white;
 }
 button {
-    font-family: "Quicksand", sans-serif;
+    font-family: myFirstFont;
     text-align: center;
     width: 20%;
     margin-left: 40%;
@@ -90,7 +94,7 @@ h1 {
 }
 ::placeholder {
     color: rgba(255,255,255, 0.5);
-    font-family: "Quicksand", sans-serif;
+    font-family: myFirstFont
 }
 .homepageSmallContainer {
     display:flex;
@@ -226,7 +230,7 @@ h1 {
 .inputDeck {
     width:100px;
     font-size: 16px;
-    font-family: "Quicksand", sans-serif;
+    font-family: myFirstFont;
     height:30px;
     color:white;
 }
