@@ -31,6 +31,7 @@ export default function Deckbuilder() {
                         </div>
                     ))} 
             </div>
+            <div></div>
 
             <Link to="/newdeck">Build a new deck!</Link>
 
