@@ -9,7 +9,13 @@ export default function(state = {}, action) {
             visible: action.visible
         };
     }
-
+    if(action.type=="SET_CARD"){
+        state = {
+            ...state,
+            cardnr:action.cardnr,
+            cardnrtwo:action.cardnrtwo
+        };
+    }
     if(action.type == "PLONE_REDUCE") {
         state = {
             ...state,
@@ -37,8 +43,110 @@ export default function(state = {}, action) {
     if(action.type == "SET_VISIBLE") {
         state = {
             ...state,
-            visible: action.visible        };
+            visible: action.visible        
+        };
+    }
+    if(action.type == "ADD_MAINBOARD"){
+        if(state.maincard){  
+            state= {
+                ...state,
+                maincard: [...state.maincard, action.cardind]
+            };
+        } else if (!state.maincard){
+            state= {
+                ...state,
+                maincard: [action.cardind]
+            };
+        }
     }
 
+    if(action.type == "ADD_SIDEBOARD"){
+        if(state.sidecard){  
+            state= {
+                ...state,
+                sidecard: [...state.sidecard, action.cardindtwo]
+            };
+        } else if (!state.sidecard){
+            state= {
+                ...state,
+                sidecard: [action.cardindtwo]
+            };
+        }
+    }
+
+    
+    if(action.type == "INCREMENT_MAINBOARD") {
+        return {
+            ...state,
+            maincard: state.maincard.map(
+                card => {
+                    if (card.maincard == action.maincard) {
+                        return {
+                            ...card,
+                            cardnr: card.cardnr + 1
+                        };
+                    } else {
+                        return card;
+                    }
+                }
+            )
+        };
+    }
+    
+    if(action.type == "DECREMENT_MAINBOARD") {
+        return {
+            ...state,
+            maincard: state.maincard.map(
+                card => {
+                    if (card.maincard == action.maincard) {
+                        return {
+                            ...card,
+                            cardnr: card.cardnr - 1
+                        };
+                    } else {
+                        return card;
+                    }
+                }
+            )
+        };
+    }
+    if(action.type == "INCREMENT_SIDEBOARD") {
+        return {
+            ...state,
+            sidecard: state.sidecard.map(
+                card => {
+                    if (card.sidecard == action.sidecard) {
+                        return {
+                            ...card,
+                            cardnrtwo: card.cardnrtwo + 1
+                        };
+                    } else {
+                        return card;
+                    }
+                }
+            )
+        };
+    }
+
+    if(action.type == "DECREMENT_SIDEBOARD") {
+        return {
+            ...state,
+            sidecard: state.sidecard.map(
+                card => {
+                    if (card.sidecard == action.sidecard) {
+                        return {
+                            ...card,
+                            cardnrtwo: card.cardnrtwo - 1
+                        };
+                    } else {
+                        return card;
+                    }
+                }
+            )
+        };
+    }
+    
     return state;
-}
+}   
+
+ 

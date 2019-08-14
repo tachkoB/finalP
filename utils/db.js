@@ -19,3 +19,14 @@ exports.getUser = function getUser(id) {
         [id]
     );
 };
+
+exports.addCard = function addCard(name) {
+    return db.query(`INSERT INTO cards (name) VALUES ($1) ON CONFLICT (name) DO NOTHING`, [name]);
+};
+
+exports.findCard = function findCard(str) {
+    return db.query(
+        `SELECT * FROM cards WHERE name ILIKE $1 LIMIT 1`,
+        [str + "%"]
+    );
+};

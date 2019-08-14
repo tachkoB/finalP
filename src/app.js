@@ -5,6 +5,7 @@ import Homepage from "./homepage";
 import NewGame from "./newgame";
 import Deckbuilder from "./deckbuilder";
 import NewDeck from "./newdeck";
+import Stats from "./stats";
 
 
 export default class App extends React.Component {
@@ -44,6 +45,8 @@ export default class App extends React.Component {
                         <Route path="/play" component={NewGame} />
                         <Route path ="/deckbuilder" component={Deckbuilder} />
                         <Route path ="/newdeck" component={NewDeck} />
+                        <Route path ="/stats" component={Stats} />
+
                     </div>
                 </BrowserRouter>
             </div>

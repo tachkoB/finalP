@@ -8,8 +8,7 @@ const cookieSession = require("cookie-session");
 const config = require("./config");
 const s3 = require("./s3");
 const mtg = require('mtgsdk');
-
-
+const scryfall = require("./scryfall-default-cards");
 
 app.use(
     cookieSession({
@@ -69,17 +68,49 @@ app.get("/welcome", (req, res) => {
     }
 });
 
+app.get("/fetchingcards", (req, res)=>{
+    mtg.card.where({ setName: 'Dominaria' })
+        .then(cards => {
+
+            console.log("logging the sets: ", cards[0].name);
+            console.log("logging the length: ", cards.length);
+            for(let i = 0; i<=cards.length; i++) {
+                console.log("this is the card name list: ", cards[i].name);
+            }
+        })
+        .catch(err=>{
+            console.log("error in getting sets: ", err.message);
+        });
+});
+
+app.get("/cards", (req, res)=>{
+
+    let filteredCards = scryfall.filter(function(v){
+        return v.legalities.standard==='legal';
+    });
+    let arrOfPromises = filteredCards.map(card => {
+        return db.addCard(card.name);
+    });
+    console.log("this is the arr of promises:",  arrOfPromises);
+    Promise.all(arrOfPromises).then(()=> {
+        console.log("it worked bae");
+    });
+});
+
+
 app.get("/searchCards/:str.json", (req, res) => {
     console.log("the req params string: ", req.params.str);
-
-    mtg.card.where({ name:req.params.str })
-        .then(cards => {
-            console.log("I need this", cards[0].name); 
-            let results = cards[0].name;
-            res.json(results);
-        })    
+    db.findCard(req.params.str)
+        .then(results => {
+            console.log(
+                "results from searching a card in route: ",
+                results.rows[0].name
+            );
+            let result = results.rows[0].name;
+            res.json({ result });
+        })
         .catch(err => {
-            console.log("error in searching for users by name: ", err.message);
+            console.log("error in searching for cards by name: ", err.message);
         });
 });
 
