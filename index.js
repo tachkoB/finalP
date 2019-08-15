@@ -140,7 +140,9 @@ app.get("/getDecks", (req, res)=>{
             if(el.winncount==0 || el.losscount ==0){
                 el.ratio = 100 +"%";
             } 
-            else {el.ratio =  el.wincount/(el.wincount +el.losscount)*100+"%";
+            else { let xy = el.wincount/(el.wincount +el.losscount)*100;
+                console.log("let me just check if this works xy: ",xy);
+                el.ratio = Math.round(xy);
                 console.log("yo: ", ratio); 
             }
             return el;

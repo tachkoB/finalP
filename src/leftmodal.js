@@ -18,7 +18,7 @@ export default function Leftmodal() {
             <div className="leftModal">
                 <img className="leftModal" src="lefty.png"/>
                 <ul className="so">
-                    <li className="leftModalList"><Link to="/deckbuilder" className="linkHomepage">Build decks</Link></li>
+                    <li className="leftModalList"><Link to="/newdeck" className="linkHomepage">Build decks</Link></li>
                     <li className="leftModalList"><Link to="/stats" className="linkHomepage">Stats</Link></li>
                 </ul>
             </div>
