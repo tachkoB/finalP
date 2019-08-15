@@ -1,7 +1,6 @@
 body {
     margin: 0;
     overflow-x: hidden;
-    background-repeat: no-repeat;
     color: white;
     font-family: myFirstFont;
     min-height: 100vh;
@@ -143,24 +142,7 @@ h1 {
     height:100%;
     align-items: center;
 }
-.plus {
-    background-color: blue;
-    padding:10px;
-    text-align: center;
-    font-size:30px;    
-    display:inline;
-    border: 1px solid white;
-    border-radius: 25%;
-}
-.minus {   
-    background-color: black;
-    padding:10px;
-    text-align: center;
-    font-size:30px;
-    display:inline;
-    border: 1px solid white;
-    border-radius: 25%;
-}
+
 .lifeTotal{
     padding:10px;
     text-align: center;
@@ -318,11 +300,14 @@ h1 {
 }
 .upperHalf{
     position:absolute;
-    top:0;
+    top: 56px;
+    z-index: 10;
 }
 .lowerHalf{
     position:absolute;
-    top:50%;
+    top:367px;
+    z-index: 10;
+
 }
 .header {
     position:absolute;
@@ -331,17 +316,54 @@ h1 {
     height:54px;
     border:1px solid white;
 }
-.wrapper {
-    height:54px;
+
+.logoGame {
+    position:absolute;
+    top:289px;
+    left:114px;
+    z-index:50;
 }
-.wrappertwo{
-    position:relative;
-    max-height:500px;
+
+.plus {
+    position:absolute;
+    top:165.5px;
+    z-index:50;
+    left:50px;
 }
-.wrapperthree {
-    height:311px;
+.minus {   
+   position:absolute;
+   top:165.5px;
+   right:50px;
+   z-index:50;
 }
-.wrapperfour {
-    position:relative;
-    max-height: 500px;
+.plustwo {
+   position:absolute;
+   top:493px;
+   z-index:50;
+   right:50px;
+}
+.minustwo {   
+  position:absolute;
+  top:493px;
+  left:50px;
+  z-index:50;
+}
+.lifeOne {
+    font-size: 70px;
+   position:absolute;
+   top:131.5px;
+   left:135px;
+   z-index:50;
+   height:100px;
+   width:100px;
+}
+.lifeTwo {
+    font-size:70px;
+    position:absolute;
+    left:135px;
+    height:100px;
+    width:100px;
+    z-index:50;
+    top:485px;
+
 }
