@@ -213,7 +213,7 @@ export function setInitialCard(){
 }
 export async function getDecks() {
     const { data } = await axios.get("/getDecks");
-    console.log("data in action     yolo:", data);
+    console.log("data in action  yolo:", data);
     return {
         type: "GET_DECKS",
         decks: data.data

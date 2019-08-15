@@ -135,9 +135,20 @@ app.get("/users", (req, res) => {
 app.get("/getDecks", (req, res)=>{
     db.getDecks(req.session.userId).then(results=>{
         console.log("results from getting the decks: ", results.rows);
-        res.json({
-            data:results.rows
+        var x = results.rows;
+        var ratio = x.map(function(el) {
+            if(el.winncount==0 || el.losscount ==0){
+                el.ratio = 100 +"%";
+            } 
+            else {el.ratio =  el.wincount/(el.wincount +el.losscount)*100+"%";
+                console.log("yo: ", ratio); 
+            }
+            return el;
         });
+        res.json({
+            data:ratio
+        });
+        
     });
 });
 
@@ -251,3 +262,12 @@ app.listen(8080, function() {
 });
 
 //node bundle-server.js
+
+// x.forEach((el)=>{
+//     if(el.winncount==0 || el.losscount ==0){
+//         el.ratio = 100;
+//     } 
+//     else {el.ratio =  el.wincount/(el.wincount +el.losscount)*100;
+//         console.log("yo: ", x); 
+//     }
+// });
