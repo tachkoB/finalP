@@ -234,6 +234,25 @@ app.post("/newdeck", (req, res)=>{
     });
 });
 
+app.post("/win", (req, res)=>{
+    console.log("there should be the id of the deck:", req.body.deckid);
+    db.addWin(req.body.deckid).then(results=>{
+        console.log("the results from adding a win: ", results);
+        res.json(null);
+    })
+        .catch(err=>console.log("error in adding win: ", err.message));
+});
+
+app.post("/loss", (req, res)=>{
+    console.log("there should be the id of the deck:", req.body.deckid);
+    db.addLoss(req.body.deckid).then(results=>{
+        console.log("the results from adding a loss: ", results);
+        res.json(null);
+    })
+        .catch(err=>console.log("error in adding loss: ", err.message));
+});
+
+
 
 app.listen(8080, function() {
     console.log("I'm listening.");

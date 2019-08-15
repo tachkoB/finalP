@@ -207,6 +207,31 @@ export default function(state = {}, action) {
             deckname: action.deckname
         };
     }
+    if(action.type == "WIN"){
+        return {
+            ...state,
+            logovisible:action.logovisible,
+            middlemodal:action.middlemodal,
+            count: action.count,
+            counttwo: action.count,
+            logolink: action.logolink,
+            upperlink: action.upperlink,
+            lowerlink: action.lowerlink        
+        };
+    }
+    if(action.type =="LOSS"){
+        return {
+            ...state,
+            logovisible:action.logovisible,
+            middlemodal:action.middlemodal,
+            count: action.count,
+            counttwo: action.count,
+            logolink: action.logolink,
+            upperlink: action.upperlink,
+            lowerlink: action.lowerlink        
+        };
+    }
+ 
     if(action.type=="SELECT_DECK"){
         return {
             ...state,

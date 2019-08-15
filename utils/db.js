@@ -44,3 +44,13 @@ exports.addSideboard = function addSideboard(name, cardnr, id){
 exports.getDecks = function getDecks(id) {
     return db.query(`SELECT name, id FROM decks WHERE user_id = ($1)`, [id]);
 };
+
+exports.addWin = function addWin(id){
+    return db.query(`UPDATE decks SET wincount = wincount + 1
+ WHERE id = ($1) RETURNING wincount`, [id]);
+};
+
+exports.addLoss = function addLoss(id){
+    return db.query(`UPDATE decks SET losscount = losscount + 1
+ WHERE id = ($1) RETURNING losscount`, [id]);
+};

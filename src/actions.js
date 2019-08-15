@@ -51,6 +51,39 @@ export async function selectDeck(deck, id){
     };
 }
 
+export async function win(id){
+    const {data} = await axios.post("/win", {
+        deckid:id
+    });
+    return {
+        type: "WIN",
+        logolink: "logogame.png",
+        upperlink: "upper.png",
+        lowerlink: "lower.png",
+        logovisible:true,
+        middlemodal: false,
+        count: 20,
+        counttwo: 20
+    };
+}
+
+export async function lose(id){
+    const {data} = await axios.post("/loss", {
+        deckid:id
+    });
+    return {
+        type:"LOSS",
+        logolink: "logogame.png",
+        upperlink: "upper.png",
+        lowerlink: "lower.png",
+        logovisible:true,
+        middlemodal: false,
+        count: 20,
+        counttwo: 20
+    };
+}
+
+
 export async function leftModalVisible(){
     return {
         type: "LEFT_MODAL",
@@ -82,18 +115,8 @@ export async function middleModal(){
         winlink: "win.png"
     };
 }
-// export async function win(){
-//     return {
-//         type: "WIN",
 
-//     };
-// }
-// export async function lose(){
-//     return {
-//         type: "LOSE",
-        
-//     };
-// }
+
 
 
 

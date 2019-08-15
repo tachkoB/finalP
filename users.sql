@@ -20,7 +20,9 @@ CREATE TABLE cards(
 CREATE TABLE decks (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100),
-    user_id INT REFERENCES users(id)
+    user_id INT REFERENCES users(id),
+    wincount INT DEFAULT 0,
+    losscount INT DEFAULT 0
 );
 
 CREATE TABLE mainboard_cards (
