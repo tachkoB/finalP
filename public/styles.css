@@ -1,7 +1,6 @@
 body {
     margin: 0;
     overflow-x: hidden;
-    background-image: url("nicky.jpg");
     background-repeat: no-repeat;
     color: white;
     font-family: myFirstFont;
@@ -310,4 +309,39 @@ h1 {
     height:100px;
     width:100px;
     padding:10px;
+}
+.nickyB{
+    position:absolute;
+}
+.completeBackground {
+    height: 100vh;
+}
+.upperHalf{
+    position:absolute;
+    top:0;
+}
+.lowerHalf{
+    position:absolute;
+    top:50%;
+}
+.header {
+    position:absolute;
+    z-index:25;
+    width:100vw;
+    height:54px;
+    border:1px solid white;
+}
+.wrapper {
+    height:54px;
+}
+.wrappertwo{
+    position:relative;
+    max-height:500px;
+}
+.wrapperthree {
+    height:311px;
+}
+.wrapperfour {
+    position:relative;
+    max-height: 500px;
 }

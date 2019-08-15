@@ -20,39 +20,23 @@ export default function NewGame() {
     return (
 
         <div>
-            <div className="playerOne">
-                <div className="gameContainer">  
-                    <div>
-                        <p className="plus" onClick={e => dispatch(playerOneAdd(count))}>+</p>
+            <div className="completeBackground">
+                <div className="header"> yo</div>
+                <img className="nickyB"src="nicky_b.jpg"/>
+                <div className="wrapper"></div>
+                <div className="wrappertwo">
+                    <div className="upperHalf">
+                        <img src="upper.png"/>
                     </div>
-                    <div className=" reverse">
-                        <p className="lifeTotal" >{count}</p>
+                    <div className="wrapperthree"></div>
+                    <div className="wrapperfour"> 
+                        <div className="lowerHalf">
+                            <img src="lower.png"/>
+                        </div>
                     </div>
-                    <div >
-                        <p className="minus"  onClick={e => dispatch(playerOneReduce(count))}>-</p>
-                    </div>  
-                </div>
-            </div>
-
-            <div className="midBar" onClick={()=>dispatch(setVisible())}>Tu ce doc ikona</div>
-
-            {visible && (
-                <Modal />
-            )}
-
-            <div className="playerTwo">
-                <div className="gameContainer">
-                    <div >
-                        <p className="minus" onClick={e => dispatch(playerTwoReduce(counttwo))}>-</p>
-                    </div>
-                    <div>
-                        <p className="lifeTotal">{counttwo}</p>
-                    </div>
-                    <div>
-                        <p className="plus" onClick={e => dispatch(playerTwoAdd(counttwo))}>+</p>
-                    </div>
+                   
                 </div>
             </div>
         </div>
     );
-}
+}311;
