@@ -17,9 +17,40 @@ export function setInitial() {
         winlink: false,
         loselink: false,
         leftmodalvisible:false,
+        rightmodalvisible:false,
+        deckname: "Decks"
+    };
+}
+export function setInitialTwo(deck) {
+    return {
+        type: "SET_INITIALTWO",
+        count: 20,
+        counttwo:20,
+        visible:false,
+        logolink: "logogame.png",
+        modalleft: false,
+        modalright: false,
+        upperlink: "upper.png",
+        lowerlink: "lower.png",
+        logovisible: true,
+        restartlink: false,
+        winlink: false,
+        loselink: false,
+        leftmodalvisible:false,
+        rightmodalvisible:false,
+        deckname: deck
+    };
+}
+
+export async function selectDeck(deck, id){
+    return {
+        type: "SELECT_DECK",
+        deckname: deck,
+        deckid:id,
         rightmodalvisible:false
     };
 }
+
 export async function leftModalVisible(){
     return {
         type: "LEFT_MODAL",
@@ -45,7 +76,10 @@ export async function middleModal(){
         restartlink: "restart.png",
         upperlink: "upperopen.png",
         lowerlink: "loweropen.png",
-        logovisible:false
+        logovisible:false,
+        middlemodal: true,
+        loselink: "lose.png",
+        winlink: "win.png"
     };
 }
 // export async function win(){

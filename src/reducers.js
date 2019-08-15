@@ -16,7 +16,8 @@ export default function(state = {}, action) {
             restartlink: action.restartlink,
             winlink: action.winlink,
             loselink: action.loselink,
-            leftmodalvisible:action.leftmodalvisible
+            leftmodalvisible: action.leftmodalvisible,
+            deckname: action.deckname
         };
     }
     if (action.type == "LEFT_MODAL"){
@@ -46,7 +47,10 @@ export default function(state = {}, action) {
             upperlink: action.upperlink,
             lowerlink: action.lowerlink,
             logovisible: action.logovisible,
-            restartlink:action.restartlink
+            restartlink:action.restartlink,
+            middlemodal: action.middlemodal,
+            winlink: action.winlink,
+            loselink: action.loselink
         };
     }
     if(action.type=="SET_CARD"){
@@ -185,12 +189,39 @@ export default function(state = {}, action) {
             )
         };
     }
+    if(action.type == "SET_INITIALTWO"){
+        return { ...state,
+            count: action.count,
+            counttwo: action.counttwo,
+            visible: action.visible,
+            logolink: action.logolink,
+            modalleft: action.modalleft,
+            modalright: action.modalright,
+            upperlink: action.upperlink,
+            lowerlink: action.lowerlink,
+            logovisible: action.logovisible,
+            restartlink: action.restartlink,
+            winlink: action.winlink,
+            loselink: action.loselink,
+            leftmodalvisible: action.leftmodalvisible,
+            deckname: action.deckname
+        };
+    }
+    if(action.type=="SELECT_DECK"){
+        return {
+            ...state,
+            deckname: action.deckname,
+            deckid: action.deckid,
+            rightmodalvisible: action.rightmodalvisible
+        };
+    }
     if(action.type == "ADD_DECK"){
         return {
             ...state,
             sidecard: action.sideboard,
             maincard: action.mainboard,
-            deckname: action.deckname
+            deckname: action.deckname,
+
         };
     }
     if(action.type == "GET_DECKS"){
@@ -201,6 +232,8 @@ export default function(state = {}, action) {
     }
     return state;
 }   
+
+
 
 
 

@@ -4,7 +4,8 @@ import Modal from "./modal";
 import Rightmodal from "./rightmodal";
 import Leftmodal from "./leftmodal";
 import { useDispatch, useSelector } from "react-redux";
-import { rightModalVisible, leftModalVisible, lose, win, middleModal, setVisible, setInitial, playerOneReduce, playerTwoReduce, playerOneAdd, playerTwoAdd } from "./actions";
+import {  rightModalVisible, leftModalVisible, middleModal, setVisible, setInitial, playerOneReduce, playerTwoReduce, playerOneAdd, playerTwoAdd } from "./actions";
+import Middlemodal from "./middlemodal";
 
 
 export default function NewGame() {
@@ -22,11 +23,13 @@ export default function NewGame() {
     const upperlink = useSelector(state=> state.upperlink);
     const lowerlink = useSelector(state=> state.lowerlink);
     const logovisible = useSelector(state=> state.logovisible);
-    const restartlink = useSelector(state=>state.restartlink);
-    const winlink = useSelector(state=>state.winlink);
-    const loselink = useSelector(state=>state.loselink);
+
     const leftmodal = useSelector(state=>state.leftmodalvisible);
     const rightmodal = useSelector(state=>state.rightmodalvisible);
+    const deckname = useSelector(state => state.deckname);
+    const middlemodal = useSelector(state=>state.middlemodal);
+
+
 
 
     return (
@@ -35,16 +38,14 @@ export default function NewGame() {
             <div className="completeBackground">
                 <div className="header">
                     <img className="hamby" onClick={e=>dispatch(leftModalVisible())} src="hamburger.png"/>
-                    <p className="headerDecks" onClick={e=>dispatch(rightModalVisible())}>Decks</p>
+                    <p className="headerDecks" onClick={e=>dispatch(rightModalVisible())}>{deckname}</p>
                 </div>
                 <img className="nickyB"src="nicky_b.jpg"/>
                 <img className="upperHalf" src={upperlink}/>
 
                 {logovisible &&(<img className="logoGame" src={logolink} onClick={e => dispatch(middleModal())}/>)}
-                {restartlink &&(<img className="logoGame" src={restartlink} onClick={e => dispatch(setInitial())}/>)}
 
-                {loselink &&(<img className="lose" src={loselink} onClick={e => dispatch(lose())}/>)}
-                {winlink &&(<img className="win" src={winlink} onClick={e =>dispatch (win())}/>)}
+                {middlemodal &&(<Middlemodal/>)}
 
                 {leftmodal &&(<Leftmodal/>)}
                 {rightmodal &&(<Rightmodal/>)}

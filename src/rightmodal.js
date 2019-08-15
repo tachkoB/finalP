@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "./axios";
 import { useDispatch, useSelector } from "react-redux";
-import { shrouder, getDecks } from "./actions";
+import { selectDeck, shrouder, getDecks } from "./actions";
 import { Link } from "react-router-dom";
 
 
@@ -11,6 +11,7 @@ export default function Rightmodal() {
     const dispatch = useDispatch();
 
     const decklist = useSelector(state=>state.decks);
+    // const selectdeck = useSelector(state=>)
 
     useEffect(()=>{
         dispatch(getDecks());
@@ -25,7 +26,7 @@ export default function Rightmodal() {
                 <ul className="absolutely">
                     <li> {decklist &&
                     decklist.map(deck => (
-                        <p key={deck.id} className="deckContainerRight">{deck.name}</p>
+                        <p key={deck.id} onClick={e=>dispatch(selectDeck(deck.name, deck.id))}className="deckContainerRight">{deck.name}</p>
                     ))} 
                     </li>
                 </ul>

@@ -451,6 +451,10 @@ h1 {
     min-width:150px;
   
 }
+ul {
+    list-style-type: none;
+
+}
 .deckNameRight{
     padding:20px;
     padding-right:0px;
@@ -468,4 +472,17 @@ h1 {
     width:50vw;
     height:100vh;
 }
+.win {
+    position:absolute;
+    top:289px;
+    z-index:150;
+    right:0px;
 
+}
+.lose {
+    position:absolute;
+    top:289px;
+    left:100px;
+    z-index:150;
+    left: 0px;
+}
