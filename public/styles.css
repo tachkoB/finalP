@@ -104,10 +104,15 @@ h1 {
     margin-right:35%;
     height:30%;
 }
+.leftModalList {
+    padding:20px;
+    padding-left:0px;
+    min-width:100px;
+}
 .linkHomepage {
     color:white;
     text-decoration: none;
-
+    width:170px;
 }
 .linkContainerHomepage {
     border:2px solid white;
@@ -305,7 +310,7 @@ h1 {
 }
 .lowerHalf{
     position:absolute;
-    top:367px;
+    bottom:0px;
     z-index: 10;
 
 }
@@ -315,6 +320,21 @@ h1 {
     width:100vw;
     height:54px;
     border:1px solid white;
+}
+.hamby {
+    padding-top:15px;
+    padding-left:15px;
+}
+.leftModal {
+    position: absolute;
+    top:0px;
+    left:0px;
+    z-index:100;
+}
+.so {
+    position:absolute;
+    z-index:160;
+    list-style-type: none;
 }
 
 .logoGame {
@@ -349,18 +369,26 @@ h1 {
   z-index:50;
 }
 .lifeOne {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    text-align:center;
     font-size: 70px;
    position:absolute;
    top:131.5px;
-   left:135px;
+   left:144px;
    z-index:50;
    height:100px;
    width:100px;
 }
 .lifeTwo {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    text-align:center;
     font-size:70px;
     position:absolute;
-    left:135px;
+    left:144px;
     height:100px;
     width:100px;
     z-index:50;

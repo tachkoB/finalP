@@ -6,7 +6,34 @@ export default function(state = {}, action) {
             ...state,
             count: action.count,
             counttwo: action.counttwo,
-            visible: action.visible
+            visible: action.visible,
+            logolink: action.logolink,
+            modalleft: action.modalleft,
+            modalright: action.modalright,
+            upperlink: action.upperlink,
+            lowerlink: action.lowerlink,
+            logovisible: action.logovisible,
+            restartlink: action.restartlink,
+            winlink: action.winlink,
+            loselink: action.loselink,
+            leftmodalvisible:action.leftmodalvisible
+        };
+    }
+    if (action.type == "LEFT_MODAL"){
+        state= {
+            ...state,
+            leftmodalvisible: action.leftmodalvisible
+        };
+    }
+
+    if (action.type == "MIDDLE_MODAL") {
+        state= {
+            ...state,
+            logolink: action.logolink,
+            upperlink: action.upperlink,
+            lowerlink: action.lowerlink,
+            logovisible: action.logovisible,
+            restartlink:action.restartlink
         };
     }
     if(action.type=="SET_CARD"){
@@ -160,5 +187,6 @@ export default function(state = {}, action) {
     }
     return state;
 }   
+
 
 

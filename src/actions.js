@@ -1,13 +1,54 @@
 import axios from "./axios";
+import { statement } from "@babel/template";
 
 export function setInitial() {
     return {
         type: "SET_INITIAL",
         count: 20,
         counttwo:20,
-        visible:false
+        visible:false,
+        logolink: "logogame.png",
+        modalleft: false,
+        modalright: false,
+        upperlink: "upper.png",
+        lowerlink: "lower.png",
+        logovisible: true,
+        restartlink: false,
+        winlink: false,
+        loselink: false,
+        leftmodalvisible:false
     };
 }
+export async function leftModalVisible(){
+    return {
+        type: "LEFT_MODAL",
+        leftmodalvisible: true
+    };
+}
+
+export async function middleModal(){
+    return {
+        type: "MIDDLE_MODAL",
+        restartlink: "restart.png",
+        upperlink: "upperopen.png",
+        lowerlink: "loweropen.png",
+        logovisible:false
+    };
+}
+// export async function win(){
+//     return {
+//         type: "WIN",
+
+//     };
+// }
+// export async function lose(){
+//     return {
+//         type: "LOSE",
+        
+//     };
+// }
+
+
 
 export function playerOneReduce(count) {
     return {
@@ -114,3 +155,4 @@ export async function addDeck(deckname, maindeck, sidedeck){
         type: "ADD_DECK"
     };
 }
+
