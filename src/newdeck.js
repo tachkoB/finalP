@@ -95,7 +95,7 @@ export default function NewDeck() {
         <div>
             <div className="headerDeck">
                 <p className="pInDeck">Name of your deck:</p>
-                <input type="text" onChange={deckName} className="inputDeck inputRegistration" placeholder="deck name" name="deckname"/> 
+                <input type="text" onChange={deckName} value={deckname} className="inputDeck inputRegistration" placeholder="deck name" name="deckname"/> 
             </div>
             <br/>
             <div className="inputContainer">

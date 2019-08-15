@@ -25,6 +25,19 @@ export default function(state = {}, action) {
             leftmodalvisible: action.leftmodalvisible
         };
     }
+    if (action.type == "RIGHT_MODAL"){
+        state = {
+            ...state,
+            rightmodalvisible: action.rightmodalvisible
+        };
+    }
+    if (action.type =="SHROUDER"){
+        state= {
+            ...state,
+            leftmodalvisible:action.leftmodalvisible,
+            rightmodalvisible:action.rightmodalvisible
+        };
+    }
 
     if (action.type == "MIDDLE_MODAL") {
         state= {
@@ -173,10 +186,11 @@ export default function(state = {}, action) {
         };
     }
     if(action.type == "ADD_DECK"){
-        console.log("this works or not");   
         return {
-            sidecard: [],
-            maincard: []
+            ...state,
+            sidecard: action.sideboard,
+            maincard: action.mainboard,
+            deckname: action.deckname
         };
     }
     if(action.type == "GET_DECKS"){

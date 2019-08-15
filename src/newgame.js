@@ -4,7 +4,7 @@ import Modal from "./modal";
 import Rightmodal from "./rightmodal";
 import Leftmodal from "./leftmodal";
 import { useDispatch, useSelector } from "react-redux";
-import { leftModalVisible, lose, win, middleModal, setVisible, setInitial, playerOneReduce, playerTwoReduce, playerOneAdd, playerTwoAdd } from "./actions";
+import { rightModalVisible, leftModalVisible, lose, win, middleModal, setVisible, setInitial, playerOneReduce, playerTwoReduce, playerOneAdd, playerTwoAdd } from "./actions";
 
 
 export default function NewGame() {
@@ -26,14 +26,17 @@ export default function NewGame() {
     const winlink = useSelector(state=>state.winlink);
     const loselink = useSelector(state=>state.loselink);
     const leftmodal = useSelector(state=>state.leftmodalvisible);
-
+    const rightmodal = useSelector(state=>state.rightmodalvisible);
 
 
     return (
 
         <div>
             <div className="completeBackground">
-                <div className="header"><img className="hamby" onClick={e=>dispatch(leftModalVisible())} src="hamburger.png"/></div>
+                <div className="header">
+                    <img className="hamby" onClick={e=>dispatch(leftModalVisible())} src="hamburger.png"/>
+                    <p className="headerDecks" onClick={e=>dispatch(rightModalVisible())}>Decks</p>
+                </div>
                 <img className="nickyB"src="nicky_b.jpg"/>
                 <img className="upperHalf" src={upperlink}/>
 
@@ -41,10 +44,10 @@ export default function NewGame() {
                 {restartlink &&(<img className="logoGame" src={restartlink} onClick={e => dispatch(setInitial())}/>)}
 
                 {loselink &&(<img className="lose" src={loselink} onClick={e => dispatch(lose())}/>)}
-
                 {winlink &&(<img className="win" src={winlink} onClick={e =>dispatch (win())}/>)}
 
                 {leftmodal &&(<Leftmodal/>)}
+                {rightmodal &&(<Rightmodal/>)}
 
                 <img className="lowerHalf" src={lowerlink}/>
                 <img className="plus" onClick={e => dispatch(playerOneAdd(count))}src="plus.png"/>

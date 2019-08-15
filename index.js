@@ -228,6 +228,7 @@ app.post("/newdeck", (req, res)=>{
         sidecards.forEach((el)=>{
             db.addSideboard(el.sidecard, el.cardnrtwo, pass);
         });
+        res.json(null);
     }).catch(err=>{
         console.log("the error in adding the deck: ", err.message);
     });

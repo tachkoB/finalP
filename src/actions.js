@@ -16,7 +16,8 @@ export function setInitial() {
         restartlink: false,
         winlink: false,
         loselink: false,
-        leftmodalvisible:false
+        leftmodalvisible:false,
+        rightmodalvisible:false
     };
 }
 export async function leftModalVisible(){
@@ -25,7 +26,19 @@ export async function leftModalVisible(){
         leftmodalvisible: true
     };
 }
-
+export async function rightModalVisible(){
+    return {
+        type: "RIGHT_MODAL",
+        rightmodalvisible: true
+    };
+}
+export async function shrouder(){
+    return {
+        type: "SHROUDER",
+        leftmodalvisible: false,
+        rightmodalvisible:false
+    };
+}
 export async function middleModal(){
     return {
         type: "MIDDLE_MODAL",
@@ -146,13 +159,16 @@ export async function getDecks() {
 
 
 export async function addDeck(deckname, maindeck, sidedeck){  
-    const { data } = await axios.post("/newdeck", {
+    await axios.post("/newdeck", {
         deckname: deckname,
         mainboard: maindeck,
         sideboard: sidedeck
     });
     return {
-        type: "ADD_DECK"
+        type: "ADD_DECK",
+        sideboard: [],
+        mainboard: [],
+        deckname: ""
     };
 }
 
