@@ -151,15 +151,7 @@ app.get("*", (req, res) => {
 });
 
 app.post("/register", (req, res) => {
-    // const { first, last, email, password} = req.body;
-    // try {
-    //let hash = await bc.hashPasword(password);
-    //let user = await db.addUser(first, last, email, hash);
-    // req.session.userId = user.rows[0].id;
-    //res.json({success:true});
-    // } catch (err) {
-    //     console.log("err in post registration:", err.message);
-    // }
+
 
     bc.hashPassword(req.body.password)
         .then(hash => {

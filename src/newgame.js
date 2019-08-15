@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import axios from "./axios";
-import Modal from "./modal";
 import Rightmodal from "./rightmodal";
 import Leftmodal from "./leftmodal";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,7 +13,6 @@ export default function NewGame() {
     useEffect(() => {
         dispatch(setInitial());
     }, []);
-    // const visible = useSelector(state=>state.visible);
 
 
     const count = useSelector(state => state.count);

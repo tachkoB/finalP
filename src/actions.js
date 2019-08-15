@@ -90,6 +90,12 @@ export async function leftModalVisible(){
         leftmodalvisible: true
     };
 }
+export async function leftModalVisibleTwo(){
+    return {
+        type: "LEFT_MODALTWO",
+        leftmodalvisibletwo: true
+    };
+}
 export async function rightModalVisible(){
     return {
         type: "RIGHT_MODAL",
@@ -100,7 +106,8 @@ export async function shrouder(){
     return {
         type: "SHROUDER",
         leftmodalvisible: false,
-        rightmodalvisible:false
+        rightmodalvisible:false,
+        leftmodalvisibletwo: false
     };
 }
 export async function middleModal(){

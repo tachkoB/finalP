@@ -36,7 +36,8 @@ export default function(state = {}, action) {
         state= {
             ...state,
             leftmodalvisible:action.leftmodalvisible,
-            rightmodalvisible:action.rightmodalvisible
+            rightmodalvisible:action.rightmodalvisible,
+            leftmodalvisibletwo: action.leftmodalvisibletwo
         };
     }
 
@@ -172,6 +173,15 @@ export default function(state = {}, action) {
         };
     }
 
+
+    if(action.type=="LEFT_MODALTWO"){
+        return {
+            ...state,
+            leftmodalvisibletwo:action.leftmodalvisibletwo
+
+
+        };
+    }
     if(action.type == "DECREMENT_SIDEBOARD") {
         return {
             ...state,

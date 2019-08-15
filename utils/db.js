@@ -42,7 +42,7 @@ exports.addSideboard = function addSideboard(name, cardnr, id){
     return db.query(`INSERT INTO sideboard_cards (cardname, number, deck_id) VALUES ($1, $2, $3)`, [name, cardnr, id]);
 };
 exports.getDecks = function getDecks(id) {
-    return db.query(`SELECT name, id FROM decks WHERE user_id = ($1)`, [id]);
+    return db.query(`SELECT name, id, wincount, losscount FROM decks WHERE user_id = ($1)`, [id]);
 };
 
 exports.addWin = function addWin(id){
