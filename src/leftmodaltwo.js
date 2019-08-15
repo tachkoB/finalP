@@ -14,11 +14,10 @@ export default function LeftModalTwo() {
     return (
         <div>
             <div className="shroud" onClick={e=>dispatch(shrouder())}></div>
-
             <div className="leftModal">
                 <img className="leftModal" src="lefty.png"/>
                 <ul className="so">
-                    <li className="leftModalList"><Link to="/play" onClick={e=>dispatch(shrouder())}className="linkHomepage">Play</Link></li>
+                    <li className="leftModalList"><Link to="/play" onClick={e=>dispatch(shrouder())}className="linkHomepage">New Game</Link></li>
                     <li className="leftModalList"><Link to="/deckbuilder" className="linkHomepage">Build decks</Link></li>
                 </ul>
             </div>

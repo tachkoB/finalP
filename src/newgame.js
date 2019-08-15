@@ -55,9 +55,6 @@ export default function NewGame() {
                 <img className="minustwo" onClick={e => dispatch(playerTwoReduce(counttwo))} src="minus.png"/>
                 <div className="lifeOne reverse">{count}</div>
                 <div className="lifeTwo">{counttwo}</div>
-
-
-
             </div>
         </div>
     );

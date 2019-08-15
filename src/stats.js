@@ -5,6 +5,8 @@ import { leftModalVisibleTwo, getDecks, shrouder } from "./actions";
 import LeftModalTwo from "./leftmodaltwo";
 
 
+
+
 export default function NewDeck() {
 
     const dispatch = useDispatch();
@@ -12,26 +14,37 @@ export default function NewDeck() {
     useEffect(()=>{
         dispatch(getDecks());
     }, []);
+
+    const decks = useSelector(state=>state.decks);
    
 
 
     
     const leftmodaltwo = useSelector(state=>state.leftmodalvisibletwo);
 
-    const deckname = useSelector(state=>state.deckname);
-    const deckid = useSelector(state=>state.deckid);
-
     return (
 
-        <div>
+        <div className="main">
             <div className="completeBackground">
                 <div className="header">
                     <img className="hamby" onClick={e=>dispatch(leftModalVisibleTwo())} src="hamburger.png"/>
                 </div>
                 <img className="nickyB" src="statsbkg.png"/>
-                {leftmodaltwo &&(<LeftModalTwo/>)}
 
+                {leftmodaltwo &&(<LeftModalTwo/>)}         
+                <div className="deckStatsContainer">
 
+                    <ul className="so">
+                        {decks &&(decks.map(deck=>(
+                            // eslint-disable-next-line react/jsx-key
+                            <li> <div className="containerOfDecks" key={deck.id}>
+                                <p>{deck.name}</p>
+                                <p>Win ratio:{deck.ratio}</p>
+                            </div>   </li>
+
+                        )))}
+                    </ul>
+                </div>
             </div>
         </div>
     );

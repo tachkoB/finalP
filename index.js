@@ -59,9 +59,9 @@ if (process.env.NODE_ENV != "production") {
 } else {
     app.use("/bundle.js", (req, res) => res.sendFile(`${__dirname}/bundle.js`));
 }
-app.get("/welcome", (req, res) => {
+app.get("/", (req, res) => {
     if (req.session.userId) {
-        res.redirect("/");
+        res.redirect("/play");
     } else {
         res.sendFile(__dirname + "/index.html");
     }
