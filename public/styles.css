@@ -529,4 +529,8 @@ ul {
 .smaller {
     margin-top:2px;
 }
+.nodeco{
+    text-decoration: none;
+    color: white;
+}
 

@@ -54,3 +54,7 @@ exports.addLoss = function addLoss(id){
     return db.query(`UPDATE decks SET losscount = losscount + 1
  WHERE id = ($1) RETURNING losscount`, [id]);
 };
+
+exports.getDeck = function getDeck(id){
+    return db.query(`SELECT decks.id, decks.name, mainboard_cards.cardname AS mainboard, sideboard_cards AS sideboard FROM deck INNER JOIN mainboard_cards ON decks.id = mainboard_cards.deck_id INNERJOIN sideboard_cards ON decks.id = sideboard_cards.deck_id WHERE id = ($1)`, [id]);
+};

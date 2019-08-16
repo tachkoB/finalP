@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
 import axios from "./axios";
 import { useDispatch, useSelector } from "react-redux";
-import { leftModalVisibleTwo, getDecks, shrouder } from "./actions";
+import { editDeck, leftModalVisibleTwo, getDecks } from "./actions";
 import LeftModalTwo from "./leftmodaltwo";
+import { Link } from "react-router-dom";
+
 
 
 
@@ -37,14 +39,17 @@ export default function NewDeck() {
                     <ul className="absolutely">
                         {decks &&(decks.map(deck=>(
                             // eslint-disable-next-line react/jsx-key
-                            <li > 
-                                <div className="containerOfDecks" key={deck.id}>
-                                    <img className="to"src="radistat.png"/>
-                                    <div className="conto">
-                                        <p className="bigger">{deck.name}</p>
-                                        <p className="smaller">{deck.ratio}% win rate</p>
-                                    </div>
-                                </div>   </li>
+                            <Link className="nodeco" onClick={e=>dispatch(editDeck(deck.id))} to={"/newdeck"}>
+                                <li > 
+                                    <div className="containerOfDecks" key={deck.id}>
+                                        <img className="to"src="radistat.png"/>
+                                        <div className="conto">
+                                            <p className="bigger">{deck.name}</p>
+                                            <p className="smaller">{deck.ratio}% win rate</p>
+                                        </div>
+                                    </div>   
+                                </li>
+                            </Link>
 
                         )))}
                     </ul>

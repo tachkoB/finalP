@@ -71,8 +71,6 @@ app.get("/fetchingcards", (req, res)=>{
     mtg.card.where({ setName: 'Dominaria' })
         .then(cards => {
 
-            console.log("logging the sets: ", cards[0].name);
-            console.log("logging the length: ", cards.length);
             for(let i = 0; i<=cards.length; i++) {
                 console.log("this is the card name list: ", cards[i].name);
             }
@@ -98,13 +96,8 @@ app.get("/cards", (req, res)=>{
 
 
 app.get("/searchCards/:str.json", (req, res) => {
-    console.log("the req params string: ", req.params.str);
     db.findCard(req.params.str)
         .then(results => {
-            console.log(
-                "results from searching a card in route: ",
-                results.rows[0].name
-            );
             let result = results.rows[0].name;
             res.json({ result });
         })
@@ -121,7 +114,6 @@ app.get("/logout", (req, res)=>{
 app.get("/users", (req, res) => {
     db.getUser(req.session.userId)
         .then(results => {
-            console.log("the results from getting user: ", results.rows[0]);
             res.json({
                 data: results.rows[0],
                 success: true
@@ -134,16 +126,13 @@ app.get("/users", (req, res) => {
 
 app.get("/getDecks", (req, res)=>{
     db.getDecks(req.session.userId).then(results=>{
-        console.log("results from getting the decks: ", results.rows);
         var x = results.rows;
         var ratio = x.map(function(el) {
             if(el.winncount==0 || el.losscount ==0){
                 el.ratio = 100 +"%";
             } 
             else { let xy = el.wincount/(el.wincount +el.losscount)*100;
-                console.log("let me just check if this works xy: ",xy);
                 el.ratio = Math.round(xy);
-                console.log("yo: ", ratio); 
             }
             return el;
         });
@@ -151,6 +140,14 @@ app.get("/getDecks", (req, res)=>{
             data:ratio
         });
         
+    });
+});
+
+app.get(`/getDeck/:id.json`, (req, res)=>{
+    console.log("is this even happening?", req.params.id);
+    db.getDeck(req.body.deckid).then(results=>{
+        console.log("results from getting the deck before editing: ", results);
+        console.log("results from getting the deck before editing and again: ", results.rows);
     });
 });
 

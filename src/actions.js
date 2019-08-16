@@ -102,6 +102,13 @@ export async function rightModalVisible(){
         rightmodalvisible: true
     };
 }
+export async function editDeck(id){
+    console.log("THE DECKID: ", id);
+    const { data } = await axios.get(`/getDeck/${id}.json`);
+    return {
+        type: "GET_DECK"
+    };
+}
 export async function shrouder(){
     return {
         type: "SHROUDER",
@@ -212,7 +219,7 @@ export function setInitialCard(){
     };
 }
 export async function getDecks() {
-    const { data } = await axios.get("/getDecks");
+    const { data } = await axios.get("/getDecks/");
     console.log("data in action  yolo:", data);
     return {
         type: "GET_DECKS",
