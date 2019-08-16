@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "./axios";
 import { setInitialCard, addMainboard, addSideboard, incrementCard, decrementCard, incrementCardTwo, decrementCardTwo, addDeck } from "./actions";
+import { Link } from "react-router-dom";
+
 
 
 export default function NewDeck() {
@@ -46,7 +48,7 @@ export default function NewDeck() {
             }
             );
         }
-        else {console.log("noup");}
+      
     }, 
     [maincard]
     );
@@ -59,7 +61,6 @@ export default function NewDeck() {
             }
             );
         }
-        else {console.log("noup");}
     }, 
     [sidecard]
     );
@@ -93,56 +94,75 @@ export default function NewDeck() {
 
     return (
         <div>
-            <div className="headerDeck">
-                <p className="pInDeck">Name of your deck:</p>
-                <input type="text" onChange={deckName} value={deckname} className="inputDeck inputRegistration" placeholder="deck name" name="deckname"/> 
-            </div>
-            <br/>
-            <div className="inputContainer">
 
-                <div className="inputHolder">
-                    <div className="smallHolder"> 
-                        <input type="text" className="inputDeck inputRegistration"  placeholder="mainboard" name="mainboard" onChange={onChange}/>
+            <div className="main">
+                <div className="completeBackground">
+                    <div className="header">
+                        <img className="hamby" onClick={e=>dispatch(leftModalVisibleTwo())} src="hamburger.png"/>
                     </div>
+                    <img className="nickyB" src="statsbkg.png"/>
+                    <img className="namey" src="namey.png"/>
+                    <img className="decky" src="decky.png"/>
+                    <img className="savey" src="savey.png"/>
+                    <input type="text" onChange={deckName} value={deckname} className="inputy" placeholder="New Deck" name="deckname"/> 
+                    <img className="searchey" src="searchey.png"/>
+                    <input type="text" className="mainey"  name="mainboard" onChange={onChange}/>
+                    <div className="newy" >
+                        <p className="newyCont" onClick={e => dispatch(addMainboard(e.target.textContent))}>{card}</p>
+                    </div>
+                    <img className="cardnr" src="cardnr.png"/>
+                    <img className="cardlist" src="cardlist.png"/>
                     
-                    <div className="newcardcontainer">
-                        <div className="newCard" >
-                            <p className="addCard" onClick={e => dispatch(addMainboard(e.target.textContent))}>{card}</p>
-                        </div>
+                    <div className="biggy">
+                        <ul className="mo">  {maincard &&
+                    maincard.map(cards => (
+                        <li > 
+                            <div className="yas">
+                                <pre className="numberyo">{cards.cardnr}     {cards.maincard}</pre>
+                            </div>
+                        </li>
+
+                    ))}
+                        </ul> 
                     </div>
-                </div>
-
-                <div className="inputHolder">
-                    <div className="smallHolder"> 
-                        <input type="text" className="inputDeck inputRegistration" placeholder="sideboard" name="sideboard" onChange={onChangeTwo}/>
-                    </div>
 
 
-                    <div className="newcardcontainer">
-                        <div className="newCard">
-                            <p className="addCard" onClick={e => dispatch(addSideboard(e.target.textContent))}>{cardtwo} </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    
 
 
 
-            <div className="decksContainer">
-                <div className="mainboardContainer">
-                    {maincard &&
-                    maincard.map(card => (
-                        <div className="cardContainer">  
-                            <p className="cardName">{card.maincard} x {card.cardnr}</p>
-                            <div className="incrementorsContainer">
-                                <p className="incrementors" onClick={e => dispatch(incrementCard(card.maincard))}>+</p><p className="incrementors" onClick={e => dispatch(decrementCard(card.maincard))}> - </p>
+
+
+                    <div className="inputContainer">
+
+                    
+
+                        <div className="inputHolder">
+                            <div className="smallHolder"> 
+                                <input type="text" className="inputDeck inputRegistration" placeholder="sideboard" name="sideboard" onChange={onChangeTwo}/>
+                            </div>
+
+
+                            <div className="newcardcontainer">
+                                <div className="newCard">
+                                    <p className="addCard" onClick={e => dispatch(addSideboard(e.target.textContent))}>{cardtwo} </p>
+                                </div>
                             </div>
                         </div>
-                    ))} <div className = "cardtotal"><p className="totalContainer">Mainboard total: {cardcount}</p></div>
-                </div>
+                    </div>
 
-                <div className="sideboardContainer">
-                    {sidecard &&
+
+
+                    <div className="decksContainer">
+                        <div className="mainboardContainer">
+                            <div className = "cardtotal"><p className="totalContainer">Mainboard total: {cardcount}</p></div>
+                        </div>
+                        <div className="cardContainer">  
+                       
+                        </div>
+
+                        <div className="sideboardContainer">
+                            {sidecard &&
                     sidecard.map(card => (
                         <div className="cardContainer">  
                             <p className="cardName">{card.sidecard} x {card.cardnrtwo}</p>
@@ -152,10 +172,15 @@ export default function NewDeck() {
                             </div>
                         </div>        
                     ))} 
-                    <div className="cardtotal"> <p className = "totalContainer">Sideboard total: {cardcounttwo}</p></div>
+                            <div className="cardtotal"> <p className = "totalContainer">Sideboard total: {cardcounttwo}</p></div>
+                        </div>
+                    </div>
+                    <Link to="/stats">
+                        <button onClick={e => dispatch(addDeck(deckname, maincard, sidecard))}>Save</button> 
+                    </Link>
                 </div>
             </div>
-            <button onClick={e => dispatch(addDeck(deckname, maincard, sidecard))}>Save</button>
         </div>
+        
     );
 }

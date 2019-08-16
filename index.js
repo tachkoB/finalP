@@ -128,11 +128,11 @@ app.get("/getDecks", (req, res)=>{
     db.getDecks(req.session.userId).then(results=>{
         var x = results.rows;
         var ratio = x.map(function(el) {
-            if(el.winncount==0 || el.losscount ==0){
-                el.ratio = 100 +"%";
+            if(el.wincount ==0 && el.losscount ==0){
+                el.ratio = "Go get 'em";
             } 
             else { let xy = el.wincount/(el.wincount +el.losscount)*100;
-                el.ratio = Math.round(xy);
+                el.ratio = Math.round(xy) + `% Win rate`;
             }
             return el;
         });
@@ -143,13 +143,13 @@ app.get("/getDecks", (req, res)=>{
     });
 });
 
-app.get(`/getDeck/:id.json`, (req, res)=>{
-    console.log("is this even happening?", req.params.id);
-    db.getDeck(req.body.deckid).then(results=>{
-        console.log("results from getting the deck before editing: ", results);
-        console.log("results from getting the deck before editing and again: ", results.rows);
-    });
-});
+// app.get(`/getDeck/:id.json`, (req, res)=>{
+//     console.log("is this even happening?", req.params.id);
+//     db.getDeck(req.body.deckid).then(results=>{
+//         console.log("results from getting the deck before editing: ", results);
+//         console.log("results from getting the deck before editing and again: ", results.rows);
+//     });
+// });
 
 //DO NOT DELTE THIS sendFile
 app.get("*", (req, res) => {

@@ -92,7 +92,8 @@ h1 {
 }
 ::placeholder {
     color: rgba(255,255,255, 0.5);
-    font-family: myFirstFont
+    font-family: myFirstFont;
+    color: white;
 }
 .homepageSmallContainer {
     display:flex;
@@ -533,4 +534,119 @@ ul {
     text-decoration: none;
     color: white;
 }
+.namey{
+    z-index:200;
+    position: absolute;
+    top:100px;
+    left:50px;
+}
+.decky {
+    z-index:200;
+    position:absolute;
+    top:85px;
+    left:10px;
+}
+.savey {
+    z-index: 200;
+    position:absolute;
+    top: 98px;
+    right: 13px;
 
+
+}
+.inputy {
+    font-family: myFirstFont;
+    font-size:23px;
+    color:white;
+    z-index:205;
+    position: absolute;
+    top:106px;
+    left:89px;
+    width:221px;
+    height:25px;
+    border: none;
+    background-color:black;
+}
+input:focus{
+    outline: none;
+}
+.searchey {
+    z-index: 200;
+    position:absolute;
+    top: 200px;
+    left: 12px;
+}
+
+.mainey{
+    z-index: 200;
+    position:absolute;
+    top: 203px;
+    left: 17px;
+    height:37px;
+    width:340px;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    font-family: myFirstFont;
+    font-size:26px;
+    color:black;
+}
+.newy {
+    z-index: 200;
+    position:absolute;
+    top: 240px;
+    left: 12px;
+    background-color:black;
+    width:350px;
+    height:39px;
+}
+.newyCont {
+    padding-left:5px;
+    font-family: myFirstFont;
+    font-size:20px;
+    margin-top:10px
+}
+.cardnr {
+    z-index: 200;
+    position:absolute;
+    top: 300px;
+    left: 12px;
+}
+.cardlist {
+    z-index: 200;
+    position:absolute;
+    top: 300px;
+    left: 12px;
+}
+.biggy {
+ 
+    z-index: 200;
+    position:absolute;
+    top: 300px;
+    left: 12px;
+    height:286px;
+    width:353px;
+    border:1px solid red;
+}
+.yas {
+    position:relative;
+    right:17px;
+    display:grid;
+    grid-template-columns: 1f 5fr;
+    grid-template-rows: 1;
+    height:30px;
+    width:350px;
+}
+.smallyLeft{
+    position:absolute;
+    height:45px;
+    width:48px; */
+    border:2px solid red;
+
+}
+.mo{
+    margin:0px;
+}
+
+.numberyo {
+    margin-left:0px;
+}

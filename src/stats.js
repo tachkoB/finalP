@@ -39,17 +39,15 @@ export default function NewDeck() {
                     <ul className="absolutely">
                         {decks &&(decks.map(deck=>(
                             // eslint-disable-next-line react/jsx-key
-                            <Link className="nodeco" onClick={e=>dispatch(editDeck(deck.id))} to={"/newdeck"}>
-                                <li > 
-                                    <div className="containerOfDecks" key={deck.id}>
-                                        <img className="to"src="radistat.png"/>
-                                        <div className="conto">
-                                            <p className="bigger">{deck.name}</p>
-                                            <p className="smaller">{deck.ratio}% win rate</p>
-                                        </div>
-                                    </div>   
-                                </li>
-                            </Link>
+                            <li > 
+                                <div className="containerOfDecks" key={deck.id}>
+                                    <img className="to"src="radistat.png"/>
+                                    <div className="conto">
+                                        <p className="bigger">{deck.name}</p>
+                                        <p className="smaller">{deck.ratio}</p>
+                                    </div>
+                                </div>   
+                            </li>
 
                         )))}
                     </ul>
