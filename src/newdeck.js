@@ -126,7 +126,10 @@ export default function NewDeck(props) {
                     maincard.map(cards => (
                         <li > 
                             <div className="yas">
-                                <pre className="numberyo">{cards.cardnr}     {cards.maincard}</pre>
+                                <img className="plusey" onClick={e => dispatch(incrementCard(cards.maincard))} src="plusy.png"/>
+                                <img className="minusey" onClick={e => dispatch(decrementCard(cards.maincard))} src="minusy.png"/>
+
+                                <pre className="numberyo">{cards.cardnr}       {cards.maincard}</pre>
                             </div>
                         </li>
 
@@ -183,9 +186,6 @@ export default function NewDeck(props) {
                             <div className="cardtotal"> <p className = "totalContainer">Sideboard total: {cardcounttwo}</p></div>
                         </div>
                     </div>
-                    <Link to="/stats">
-                        <button onClick={e => dispatch(addDeck(deckname, maincard, sidecard))}>Save</button> 
-                    </Link>
                 </div>
             </div>
         </div>

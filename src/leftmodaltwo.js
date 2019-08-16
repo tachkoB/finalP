@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "./axios";
 import { useDispatch, useSelector } from "react-redux";
-import { shrouder } from "./actions";
+import { shrouder, hideit } from "./actions";
 import { Link } from "react-router-dom";
 
 
@@ -18,7 +18,7 @@ export default function LeftModalTwo() {
                 <img className="leftModal" src="lefty.png"/>
                 <ul className="so">
                     <li className="leftModalList"><Link to="/play" onClick={e=>dispatch(shrouder())}className="linkHomepage">New Game</Link></li>
-                    <li className="leftModalList"><Link to="/newdeck" className="linkHomepage">Build decks</Link></li>
+                    <li className="leftModalList"><Link to="/newdeck" className="linkHomepage" onClick={e=>dispatch(hideit())}>Build decks</Link></li>
                 </ul>
             </div>
         </div>

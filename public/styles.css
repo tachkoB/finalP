@@ -626,6 +626,7 @@ input:focus{
     height:286px;
     width:353px;
     border:1px solid red;
+    overflow-y:auto;
 }
 .yas {
     position:relative;
@@ -649,4 +650,19 @@ input:focus{
 
 .numberyo {
     margin-left:0px;
+    font-family: myFirstFont;
+    font-size: 18px;
+}
+
+.plusey {
+    z-index:350;
+    position: absolute;
+    top: 10px;
+    right:55px;
+}
+.minusey {
+    z-index:350;
+    position: absolute;
+    top: 10px;
+    right:25px;
 }

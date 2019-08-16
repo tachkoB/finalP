@@ -265,6 +265,12 @@ export default function(state = {}, action) {
             decks: action.decks
         };    
     }
+    if(action.type == "HIDE_TWO"){
+        return {
+            ...state,
+            leftmodalvisibletwo: action.leftmodalvisibletwo
+        };
+    }
     return state;
 }   
 

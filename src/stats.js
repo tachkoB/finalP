@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import axios from "./axios";
 import { useDispatch, useSelector } from "react-redux";
-import { editDeck, leftModalVisibleTwo, getDecks } from "./actions";
+import { hideIt, editDeck, leftModalVisibleTwo, getDecks } from "./actions";
 import LeftModalTwo from "./leftmodaltwo";
 import { Link } from "react-router-dom";
 
@@ -12,6 +12,9 @@ import { Link } from "react-router-dom";
 export default function NewDeck() {
 
     const dispatch = useDispatch();
+    useEffect(()=>{
+        dispatch(hideIt());
+    }, []);
 
     useEffect(()=>{
         dispatch(getDecks());

@@ -183,7 +183,8 @@ export function addSideboard(sidecard){
         }
     };
 }
-export function incrementCard(maincard) {    
+export function incrementCard(maincard) {   
+    console.log("wooo: ", maincard); 
     return {
         type: "INCREMENT_MAINBOARD",
         maincard: maincard
@@ -226,6 +227,12 @@ export async function getDecks() {
     };
 }
 
+export async function hideIt(){
+    return {
+        type: "HIDE_TWO",
+        leftmodalvisibletwo: false
+    };
+}
 
 
 export async function addDeck(deckname, maindeck, sidedeck){  
