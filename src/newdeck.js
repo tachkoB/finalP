@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 
 
-export default function NewDeck() {
+export default function NewDeck(props) {
     const [card, setCard] = useState();
     const [val, setVal] = useState();
     const [cardtwo, setCardTwo] = useState();
@@ -103,7 +103,15 @@ export default function NewDeck() {
                     <img className="nickyB" src="statsbkg.png"/>
                     <img className="namey" src="namey.png"/>
                     <img className="decky" src="decky.png"/>
-                    <img className="savey" src="savey.png"/>
+                    <img className="savey"
+                        onClick={e => {
+                            const action = addDeck(deckname, maincard, sidecard);
+                            dispatch(action);
+                            action.then(
+                                () => props.history.push('/stats')
+                            );
+                        }}
+                        src="savey.png"/>
                     <input type="text" onChange={deckName} value={deckname} className="inputy" placeholder="New Deck" name="deckname"/> 
                     <img className="searchey" src="searchey.png"/>
                     <input type="text" className="mainey"  name="mainboard" onChange={onChange}/>

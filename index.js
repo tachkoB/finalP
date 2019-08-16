@@ -227,9 +227,7 @@ app.post("/newdeck", (req, res)=>{
         maincards.forEach((el)=>{
             db.addMainboard(el.maincard, el.cardnr, pass);
         });
-        sidecards.forEach((el)=>{
-            db.addSideboard(el.sidecard, el.cardnrtwo, pass);
-        });
+      
         res.json(null);
     }).catch(err=>{
         console.log("the error in adding the deck: ", err.message);
