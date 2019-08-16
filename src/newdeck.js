@@ -2,8 +2,9 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "./axios";
-import { setInitialCard, addMainboard, addSideboard, incrementCard, decrementCard, incrementCardTwo, decrementCardTwo, addDeck } from "./actions";
+import { hideItTwo, setInitialCard, addMainboard, addSideboard, incrementCard, decrementCard, incrementCardTwo, decrementCardTwo, addDeck, leftModalVisibleThree } from "./actions";
 import { Link } from "react-router-dom";
+import LeftModalThree from "./leftmodalthree";
 
 
 
@@ -19,6 +20,7 @@ export default function NewDeck(props) {
 
     const maincard = useSelector(state => state.maincard);
     const sidecard = useSelector(state=> state.sidecard);
+    const leftthree = useSelector(state=> state.leftmodalvisiblethree);
 
     useEffect(() => {
         dispatch(setInitialCard());
@@ -38,6 +40,9 @@ export default function NewDeck(props) {
         },
         [val]
     );
+    useEffect(()=>{
+        dispatch(hideItTwo());
+    }, []);
 
     useEffect (()=>{
         if (maincard){
@@ -94,11 +99,10 @@ export default function NewDeck(props) {
 
     return (
         <div>
-
             <div className="main">
                 <div className="completeBackground">
                     <div className="header">
-                        <img className="hamby" onClick={e=>dispatch(leftModalVisibleTwo())} src="hamburger.png"/>
+                        <img className="hamby" onClick={e=>dispatch(leftModalVisibleThree())} src="hamburger.png"/>
                     </div>
                     <img className="nickyB" src="statsbkg.png"/>
                     <img className="namey" src="namey.png"/>
@@ -120,6 +124,7 @@ export default function NewDeck(props) {
                     </div>
                     <img className="cardnr" src="cardnr.png"/>
                     <img className="cardlist" src="cardlist.png"/>
+                    {leftthree &&(<LeftModalThree/>)} 
                     
                     <div className="biggy">
                         <ul className="mo">  {maincard &&
@@ -136,6 +141,7 @@ export default function NewDeck(props) {
                     ))}
                         </ul> 
                     </div>
+                    <div className = "cardtotalmain"><p className="totalContainer">card total: {cardcount}</p></div>
 
 
     

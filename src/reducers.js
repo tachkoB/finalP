@@ -37,7 +37,8 @@ export default function(state = {}, action) {
             ...state,
             leftmodalvisible:action.leftmodalvisible,
             rightmodalvisible:action.rightmodalvisible,
-            leftmodalvisibletwo: action.leftmodalvisibletwo
+            leftmodalvisibletwo: action.leftmodalvisibletwo,
+            leftmodalvisiblethree: action.leftmodalvisiblethree
         };
     }
 
@@ -269,6 +270,18 @@ export default function(state = {}, action) {
         return {
             ...state,
             leftmodalvisibletwo: action.leftmodalvisibletwo
+        };
+    }
+    if(action.type == "HIDE_THREE"){
+        return {
+            ...state,
+            leftmodalvisiblethree: action.leftmodalvisiblethree
+        };
+    }
+    if(action.type =="SHOW_THREE"){
+        return {
+            ...state,
+            leftmodalvisiblethree: action.leftmodalvisiblethree
         };
     }
     return state;

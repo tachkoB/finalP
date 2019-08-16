@@ -114,7 +114,8 @@ export async function shrouder(){
         type: "SHROUDER",
         leftmodalvisible: false,
         rightmodalvisible:false,
-        leftmodalvisibletwo: false
+        leftmodalvisibletwo: false,
+        leftmodalvisiblethree:false
     };
 }
 export async function middleModal(){
@@ -188,13 +189,24 @@ export function incrementCard(maincard) {
     return {
         type: "INCREMENT_MAINBOARD",
         maincard: maincard
-    }; 
-    
+    };  
+}
+export function hideItTwo(){
+    return{
+        type: "HIDE_THREE",
+        leftmodalvisiblethree: false
+    };
 }
 export function decrementCard(maincard) {
     return {
         type: "DECREMENT_MAINBOARD",
         maincard:maincard   
+    };
+}
+export function leftModalVisibleThree(){
+    return {
+        type:"SHOW_THREE",
+        leftmodalvisiblethree: true
     };
 }
 
