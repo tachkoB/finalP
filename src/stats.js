@@ -7,9 +7,7 @@ import { Link } from "react-router-dom";
 
 
 
-
-
-export default function NewDeck() {
+export default function NewDeck(props) {
 
     const dispatch = useDispatch();
     useEffect(()=>{
@@ -43,13 +41,17 @@ export default function NewDeck() {
                         {decks &&(decks.map(deck=>(
                             // eslint-disable-next-line react/jsx-key
                             <li > 
-                                <div className="containerOfDecks" key={deck.id}>
+                                <div className="containerOfDecks" onClick={e=>{
+                                    const actiontwo = editDeck(deck.id);
+                                    dispatch(actiontwo);
+                                    actiontwo.then(()=>props.history.push(`/newdeck/${deck.id}.json`));
+                                }} key={deck.id}>
                                     <img className="to"src="radistat.png"/>
                                     <div className="conto">
                                         <p className="bigger">{deck.name}</p>
                                         <p className="smaller">{deck.ratio}</p>
                                     </div>
-                                </div>   
+                                </div>  
                             </li>
 
                         )))}

@@ -46,6 +46,7 @@ export default class App extends React.Component {
                         <Route path ="/deckbuilder" component={Deckbuilder} />
                         <Route path ="/newdeck" component={NewDeck} />
                         <Route path ="/stats" component={Stats} />
+                        <Route path ="/newdeck/:id" component={NewDeck} />
 
                     </div>
                 </BrowserRouter>

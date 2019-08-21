@@ -1,3 +1,7 @@
+* {
+    touch-action: manipulation;
+}
+
 body {
     margin: 0;
     overflow-x: hidden;
@@ -94,6 +98,9 @@ h1 {
     color: rgba(255,255,255, 0.5);
     font-family: myFirstFont;
     color: white;
+}
+.mainey::placeholder {
+    color:black;
 }
 .homepageSmallContainer {
     display:flex;
@@ -629,12 +636,13 @@ input:focus{
 }
 .yas {
     position:relative;
-    right:17px;
-    display:grid;
-    grid-template-columns: 1f 5fr;
-    grid-template-rows: 1;
-    height:30px;
-    width:350px;
+    right:2px;
+    display:flex;
+    flex-direction: row;
+    margin-left:1px;
+    margin-top:3px;
+    height:40px;
+    align-items: center;
 }
 .smallyLeft{
     position:absolute;
@@ -653,21 +661,33 @@ input:focus{
     font-size: 18px;
 }
 
-.plusey {
-    z-index:350;
+/* .plusey {
+    z-index: 350;
     position: absolute;
     top: 10px;
-    right:55px;
+    right:40px;
+  
 }
 .minusey {
     z-index:350;
     position: absolute;
     top: 10px;
-    right:25px;
-}
+    right:10px;
+} */
 .cardtotalmain{
     z-index:300;
     position: absolute;
     bottom:2px;
     padding-left:15px;
+}
+.cdnmr{
+    width:55px;
+    text-align: center;
+}
+.cdname {
+    padding-left:8px;
+    flex-grow:1;
+}
+ .pl {
+     margin-right:5px;
 }

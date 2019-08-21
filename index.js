@@ -143,13 +143,12 @@ app.get("/getDecks", (req, res)=>{
     });
 });
 
-// app.get(`/getDeck/:id.json`, (req, res)=>{
-//     console.log("is this even happening?", req.params.id);
-//     db.getDeck(req.body.deckid).then(results=>{
-//         console.log("results from getting the deck before editing: ", results);
-//         console.log("results from getting the deck before editing and again: ", results.rows);
-//     });
-// });
+app.get(`/getDeck/:id.json`, (req, res)=>{
+    console.log("is this even happening?", req.params.id);
+    db.getDeck(req.params.id).then(({rows:results}) => {
+        console.log("results from getting the deck before editing: ", results);
+    });
+});
 
 //DO NOT DELTE THIS sendFile
 app.get("*", (req, res) => {

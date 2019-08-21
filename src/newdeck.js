@@ -26,6 +26,8 @@ export default function NewDeck(props) {
         dispatch(setInitialCard());
     }, []);
 
+   
+  
     useEffect(
         () => {
             if (val) {
@@ -102,11 +104,11 @@ export default function NewDeck(props) {
             <div className="main">
                 <div className="completeBackground">
                     <div className="header">
-                        <img className="hamby" onClick={e=>dispatch(leftModalVisibleThree())} src="hamburger.png"/>
+                        <img className="hamby" onClick={e=>dispatch(leftModalVisibleThree())} src="/hamburger.png"/>
                     </div>
-                    <img className="nickyB" src="statsbkg.png"/>
-                    <img className="namey" src="namey.png"/>
-                    <img className="decky" src="decky.png"/>
+                    <img className="nickyB" src="/statsbkg.png"/>
+                    <img className="namey" src="/namey.png"/>
+                    <img className="decky" src="/decky.png"/>
                     <img className="savey"
                         onClick={e => {
                             const action = addDeck(deckname, maincard, sidecard);
@@ -115,83 +117,43 @@ export default function NewDeck(props) {
                                 () => props.history.push('/stats')
                             );
                         }}
-                        src="savey.png"/>
+                        src="/savey.png"/>
                     <input type="text" onChange={deckName} value={deckname} className="inputy" placeholder="New Deck" name="deckname"/> 
-                    <img className="searchey" src="searchey.png"/>
-                    <input type="text" className="mainey"  name="mainboard" onChange={onChange}/>
+                    <img className="searchey" src="/searchey.png"/>
+                    <input type="text" placeholder="mainboard" className="mainey"  name="mainboard" onChange={onChange}/>
                     <div className="newy" >
                         <p className="newyCont" onClick={e => dispatch(addMainboard(e.target.textContent))}>{card}</p>
                     </div>
-                    <img className="cardnr" src="cardnr.png"/>
-                    <img className="cardlist" src="cardlist.png"/>
+                    <img className="cardnr" src="/cardnr.png"/>
+                    <img className="cardlist" src="/cardlist.png"/>
                     {leftthree &&(<LeftModalThree/>)} 
                     
                     <div className="biggy">
-                        <ul className="mo">  {maincard &&
-                    maincard.map(cards => (
-                        <li > 
-                            <div className="yas">
-                                <img className="plusey" onClick={e => dispatch(incrementCard(cards.maincard))} src="plusy.png"/>
-                                <img className="minusey" onClick={e => dispatch(decrementCard(cards.maincard))} src="minusy.png"/>
-
-                                <pre className="numberyo">{cards.cardnr}       {cards.maincard}</pre>
+                        {maincard &&
+                    maincard.filter(cards => {
+                        if(cards.cardnr>0){
+                            return cards;
+                        }
+                    }).map(cards => (
+                        <div className="yas">
+                            <div className="cdnmr">
+                                <p>{cards.cardnr}</p>
                             </div>
-                        </li>
+                            <div className="cdname">                        
+                                <p>{cards.maincard}</p>
+                            </div>
+                            <div className="pl">
+                                <img className="plusey" onClick={e => dispatch(incrementCard(cards.maincard))} src="/plusy.png"/>
+                            </div>
+                            <div className="min">
+                                <img className="minusey" onClick={e => dispatch(decrementCard(cards.maincard))} src="/minusy.png"/>
+                            </div>
+                        </div>
 
                     ))}
-                        </ul> 
+                
                     </div>
                     <div className = "cardtotalmain"><p className="totalContainer">card total: {cardcount}</p></div>
-
-
-    
-
-
-
-
-
-                    <div className="inputContainer">
-
-                    
-
-                        <div className="inputHolder">
-                            <div className="smallHolder"> 
-                                <input type="text" className="inputDeck inputRegistration" placeholder="sideboard" name="sideboard" onChange={onChangeTwo}/>
-                            </div>
-
-
-                            <div className="newcardcontainer">
-                                <div className="newCard">
-                                    <p className="addCard" onClick={e => dispatch(addSideboard(e.target.textContent))}>{cardtwo} </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                    <div className="decksContainer">
-                        <div className="mainboardContainer">
-                            <div className = "cardtotal"><p className="totalContainer">Mainboard total: {cardcount}</p></div>
-                        </div>
-                        <div className="cardContainer">  
-                       
-                        </div>
-
-                        <div className="sideboardContainer">
-                            {sidecard &&
-                    sidecard.map(card => (
-                        <div className="cardContainer">  
-                            <p className="cardName">{card.sidecard} x {card.cardnrtwo}</p>
-                            <div className="incrementorsContainer">
-                                <p className="incrementors" onClick={e => dispatch(incrementCardTwo(card.sidecard))}>+ </p>
-                                <p className="incrementors" onClick={e => dispatch(decrementCardTwo(card.sidecard))}> - </p>
-                            </div>
-                        </div>        
-                    ))} 
-                            <div className="cardtotal"> <p className = "totalContainer">Sideboard total: {cardcounttwo}</p></div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

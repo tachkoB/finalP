@@ -18,7 +18,7 @@ export default function LeftModalTwo() {
                 <img className="leftModal" src="lefty.png"/>
                 <ul className="so">
                     <li className="leftModalList"><Link to="/play" onClick={e=>dispatch(shrouder())}className="linkHomepage">New Game</Link></li>
-                    <li className="leftModalList"><Link to="/newdeck" className="linkHomepage" onClick={e=>dispatch(hideit())}>Build decks</Link></li>
+                    <li className="leftModalList"><Link to="/newdeck" className="linkHomepage">Build decks</Link></li>
                 </ul>
             </div>
         </div>

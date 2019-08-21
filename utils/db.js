@@ -56,5 +56,13 @@ exports.addLoss = function addLoss(id){
 };
 
 exports.getDeck = function getDeck(id){
-    return db.query(`SELECTxd decks.name, mainboard_cards.cardname AS mainboard, sideboard_cards AS sideboard FROM deck INNER JOIN mainboard_cards ON mainboard_cards.deck_id = decks.id INNERJOIN sideboard_cards ON sideboard_cards.deck_id = decks.id  WHERE id = ($1)`, [id]);
+    console.log('id', id);
+    
+    return db.query(`SELECT decks.*, mainboard_cards.cardname AS mainboard, sideboard_cards.cardname AS sideboard 
+    FROM decks 
+    FULL OUTER JOIN mainboard_cards 
+    ON mainboard_cards.deck_id = decks.id 
+    FULL OUTER JOIN sideboard_cards 
+    ON sideboard_cards.deck_id = decks.id  
+    WHERE decks.id = $1`, [id]);
 };
