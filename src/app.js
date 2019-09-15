@@ -7,7 +7,6 @@ import Deckbuilder from "./deckbuilder";
 import NewDeck from "./newdeck";
 import Stats from "./stats";
 
-
 export default class App extends React.Component {
     constructor(props) {
         super(props);
@@ -18,7 +17,7 @@ export default class App extends React.Component {
             console.log("this is the id I need: ", results.data.data.id);
             this.setState({
                 id: results.data.data.id,
-                first: results.data.data.first,
+                first: results.data.data.first
             });
         });
     }
@@ -31,23 +30,11 @@ export default class App extends React.Component {
             <div>
                 <BrowserRouter>
                     <div>
-                        <Route
-                            exact
-                            path="/"
-                            render={props => {
-                                return (
-                                    <Homepage
-                                        id={this.state.id}
-                                    />
-                                );
-                            }}
-                        />   
                         <Route path="/play" component={NewGame} />
-                        <Route path ="/deckbuilder" component={Deckbuilder} />
-                        <Route path ="/newdeck" component={NewDeck} />
-                        <Route path ="/stats" component={Stats} />
-                        <Route path ="/newdeck/:id" component={NewDeck} />
-
+                        <Route path="/deckbuilder" component={Deckbuilder} />
+                        <Route path="/newdeck" component={NewDeck} />
+                        <Route path="/stats" component={Stats} />
+                        <Route path="/newdeck/:id" component={NewDeck} />
                     </div>
                 </BrowserRouter>
             </div>

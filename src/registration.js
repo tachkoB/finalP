@@ -36,6 +36,9 @@ export default class Registration extends React.Component {
         return (
             <div className="inputField">
                 <div className="shadowWrapper">
+                    <img className="nickyBTwo" src="nicky_b.jpg" />
+                    <img className="logoReg" src="logothree.png" />
+
                     <h4 className="registerIntro">
                         Register for free to use Magic the Gathering Life
                         Counter & Deck Builder
@@ -43,40 +46,48 @@ export default class Registration extends React.Component {
                 </div>
                 {this.state.error && <div className="error">Oops</div>}
                 <input
-                    className="inputRegistration"
+                    className="inputRegistration one"
                     name="first"
                     placeholder="first"
                     onChange={e => this.handleChange(e)}
                 />
                 <br />
                 <input
-                    className="inputRegistration"
+                    className="inputRegistration two"
                     name="last"
                     placeholder="last"
                     onChange={e => this.handleChange(e)}
                 />
+
                 <br />
 
                 <input
-                    className="inputRegistration"
+                    className="inputRegistration three"
                     type="email"
                     name="email"
                     placeholder="email"
                     onChange={e => this.handleChange(e)}
                 />
+
                 <br />
 
                 <input
-                    className="inputRegistration"
+                    className="inputRegistration four"
                     autoComplete="new-password"
                     type="password"
                     name="password"
                     placeholder="password"
                     onChange={e => this.handleChange(e)}
                 />
+
                 <br />
 
-                <button onClick={e => this.submit(e)}>Register</button>
+                <button
+                    className="buttonRegistration"
+                    onClick={e => this.submit(e)}
+                >
+                    Register
+                </button>
                 <br />
                 <div className="shadowWrapper">
                     <Link className="loginLink" to="/login">

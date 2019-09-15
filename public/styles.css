@@ -1,5 +1,6 @@
 * {
     touch-action: manipulation;
+    overflow-x: hidden;
 }
 
 body {
@@ -12,7 +13,7 @@ body {
 }
 @font-face {
     font-family: myFirstFont;
-    src:url("LeagueSpartan-Bold.otf");
+    src: url("LeagueSpartan-Bold.otf");
 }
 #background {
     height: 667px;
@@ -46,6 +47,8 @@ body {
 .registerIntro {
     color: orange;
     text-align: center;
+    position: absolute;
+    top: 200px;
 }
 
 #networkName {
@@ -53,20 +56,38 @@ body {
     text-align: center;
 }
 .inputField {
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
+    max-height: 100vh;
+    overflow-y: hidden;
 }
 .inputRegistration {
+    font-family: myFirstFont;
+    padding-left: 5px;
+    position: absolute;
+    top: 300px;
     margin-top: 7px;
     border-style: none;
-    background: rgba(0, 0, 0, 0.5);
-    width: 50%;
-    margin-left: 25%;
-    margin-right: 25%;
-    border-bottom: 2px solid white;
-    color:white;
+    background: rgba(0, 0, 0, 0.7);
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+    border-bottom: 2px solid rgba(129, 120, 120, 0.5);
+    color: white;
+    height: 30px;
 }
+.buttonRegistration {
+    position: absolute;
+    top: 490px;
+}
+.inputRegistration.two {
+    top: 340px;
+}
+.inputRegistration.three {
+    top: 380px;
+}
+.inputRegistration.four {
+    top: 420px;
+}
+
 button {
     font-family: myFirstFont;
     text-align: center;
@@ -90,35 +111,40 @@ button {
     color: #a3b86c;
     text-decoration: none;
     text-align: center;
+    position: absolute;
+    top: 550px;
+    width: 230px;
+    left: 72.5px;
 }
 h1 {
     text-align: center;
 }
 ::placeholder {
-    color: rgba(255,255,255, 0.5);
+    color: rgba(255, 255, 255, 0.5);
     font-family: myFirstFont;
     color: white;
+    text-align: center;
 }
 .mainey::placeholder {
-    color:black;
+    color: black;
 }
 .homepageSmallContainer {
-    display:flex;
+    display: flex;
     flex-direction: column;
 }
 .homepageBigContainer {
-    width:30%;
-    margin-left:35%;
-    margin-right:35%;
-    height:30%;
+    width: 30%;
+    margin-left: 35%;
+    margin-right: 35%;
+    height: 30%;
 }
 .leftModalList {
-    padding:20px;
-    padding-left:0px;
-    min-width:150px;
-    z-index:550;
+    padding: 20px;
+    padding-left: 0px;
+    min-width: 150px;
+    z-index: 580;
 }
-.deckContainerRight{
+.deckContainerRight {
     /* display:flex;
     justify-content: center;
     align-items: center;
@@ -128,55 +154,54 @@ h1 {
     padding-left:0px;
     min-width:150px;
    */
-   width:170px;
-
+    width: 170px;
 }
 .linkHomepage {
-    z-index:550;
-    color:white;
+    z-index: 550;
+    color: white;
     text-decoration: none;
-    width:170px;
-    font-size:20px;
+    width: 170px;
+    font-size: 20px;
 }
 .linkContainerHomepage {
-    border:2px solid white;
-    border-radius:25px;
+    border: 2px solid white;
+    border-radius: 25px;
     text-align: center;
-    margin:10px;
+    margin: 10px;
     background-color: black;
 }
 .homepageMain {
     height: 100vh;
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
-.playerOne{
-    height:45vh;
+.playerOne {
+    height: 45vh;
     background-color: red;
 }
-.playerTwo{
-    height:45vh;
+.playerTwo {
+    height: 45vh;
     background-color: green;
 }
 .midBar {
     background-color: gray;
-    height:10vh;
+    height: 10vh;
     text-align: center;
 }
 .gameContainer {
-    display:grid;
+    display: grid;
     grid-template-columns: 1fr 3fr 1fr;
     text-align: center;
-    height:100%;
+    height: 100%;
     align-items: center;
 }
 
-.lifeTotal{
-    padding:10px;
+.lifeTotal {
+    padding: 10px;
     text-align: center;
     font-size: 50px;
-    display:inline;
+    display: inline;
     border: 1px solid white;
     border-radius: 50%;
 }
@@ -186,63 +211,60 @@ h1 {
     -o-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg);
-  }
-  .modal {
-      font-size:25px;
-      width: 100vw;
-      height:20vh;
-      position:absolute;
-      top:40vh;
-      background-color:black;
-      display:grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      text-align: center;
-      align-items: center;
-    }
-  .decksContainer {
-      display:flex;
-      flex-direction:row;
-      height:60vh;
-      /* background-color: black; */
-  }
-  .mainboardContainer {
-      width:50%;
-      height:100%;
-      background-color: red;
-      overflow-y:auto;
-      background-color: rgba(0, 0, 0, 0.5);
-      border-right: 1px solid white;
-
-  }
-  .sideboardContainer {
-    width:50%;
-    height:100%;
+}
+.modal {
+    font-size: 25px;
+    width: 100vw;
+    height: 20vh;
+    position: absolute;
+    top: 40vh;
+    background-color: black;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+    align-items: center;
+}
+.decksContainer {
+    display: flex;
+    flex-direction: row;
+    height: 60vh;
+    /* background-color: black; */
+}
+.mainboardContainer {
+    width: 50%;
+    height: 100%;
+    background-color: red;
+    overflow-y: auto;
     background-color: rgba(0, 0, 0, 0.5);
-    overflow-y:auto;
+    border-right: 1px solid white;
+}
+.sideboardContainer {
+    width: 50%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
     border-left: 1px solid white;
-
 }
 .inputHolder {
-    height:100px;
-    width:50%;
-
+    height: 100px;
+    width: 50%;
 }
 .inputContainer {
-    height:100px;
-    display:flex;
+    height: 100px;
+    display: flex;
     flex-direction: rows;
 }
 .pInDeck {
-    margin:0;
-    padding:10px;
-    background-color: rgba(0, 0, 0, 0.3);    
+    margin: 0;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.3);
 }
 .inputDeck {
-    width:100px;
+    width: 100px;
     font-size: 16px;
     font-family: myFirstFont;
-    height:30px;
-    color:white;
+    height: 30px;
+    color: white;
 }
 .headerDeck {
     display: flex;
@@ -250,38 +272,37 @@ h1 {
     justify-content: center;
     align-items: center;
 }
-.newcardcontainer{
+.newcardcontainer {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .newCard {
-    max-height:55px;
-    max-width:150px;
+    max-height: 55px;
+    max-width: 150px;
     background-color: rgba(0, 0, 0, 0.3);
     display: flex;
     justify-content: center;
 }
 
 .addCard {
-    max-width:100%;
-    text-align:center;
+    max-width: 100%;
+    text-align: center;
     margin-top: 2px;
     margin-bottom: 2px;
-    padding-right:2px,
-
+    padding-right: 2px;
 }
 .smallHolder {
-    display:flex;
+    display: flex;
     flex-direction: rows;
     justify-content: center;
     /* align-items: center; */
 }
 .incrememtCard {
-    float:right;
+    float: right;
 }
 .decrememtCard {
-    float:right;
+    float: right;
 }
 .cardContainer {
     display: grid;
@@ -289,374 +310,378 @@ h1 {
     align-items: center;
 }
 .incrementorsContainer {
-    display:flex;
+    display: flex;
     align-items: flex-end;
 }
 .incrementors {
-    display:inline;
-    font-size:25px;
-    margin:0;
-    padding-left:7px;
+    display: inline;
+    font-size: 25px;
+    margin: 0;
+    padding-left: 7px;
 }
 .cardName {
-    margin:0;
-    font-size:17px;
-    padding-left:4px;
+    margin: 0;
+    font-size: 17px;
+    padding-left: 4px;
 }
 .cardtotal {
     position: absolute;
-    bottom:2px;
-    padding-left:10px;
+    bottom: 2px;
+    padding-left: 10px;
 }
 .totalContainer {
     background-color: rgba(0, 0, 0, 0.3);
 }
-.deckListContainer{
-    display:grid;
+.deckListContainer {
+    display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
-.deckContainer{
-    border:2px solid green;
-    height:100px;
-    width:100px;
-    padding:10px;
+.deckContainer {
+    border: 2px solid green;
+    height: 100px;
+    width: 100px;
+    padding: 10px;
 }
-.nickyB{
-    position:fixed;
-    z-index:20;
+.nickyB {
+    position: fixed;
+    z-index: 20;
 }
+nickyBTwo {
+    position: absolute;
+}
+
 .completeBackground {
     height: 100vh;
-    z-index:15
+    z-index: 15;
 }
-.upperHalf{
-    position:absolute;
+.upperHalf {
+    position: absolute;
     top: 56px;
     z-index: 100;
 }
-.lowerHalf{
-    position:absolute;
-    bottom:0px;
+.lowerHalf {
+    position: absolute;
+    bottom: 0px;
     z-index: 100;
-
 }
 .header {
-    position:absolute;
-    z-index:25;
-    width:100vw;
-    height:54px;
-    border:1px solid white;
+    position: absolute;
+    z-index: 25;
+    width: 100vw;
+    height: 54px;
+    border: 1px solid white;
 }
 .hamby {
-    z-index:2;
-    padding-top:18px;
-    padding-left:15px;
+    z-index: 2;
+    padding-top: 18px;
+    padding-left: 15px;
 }
-.headerDecks{
-    margin-bottom:10px;
-    position:absolute;
-    right:0;
-    top:0;
-    padding-top:0;
-    padding-right:15px;
+.logoReg {
+    position: absolute;
+    top: 20px;
+    left: 87.5px;
+    z-index: 30;
+}
+.headerDecks {
+    margin-bottom: 10px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding-top: 0;
+    padding-right: 15px;
     font-size: 20px;
 }
 .leftModal {
     position: absolute;
-    top:0px;
-    left:0px;
-    z-index:500;
+    top: 0px;
+    left: 0px;
+    z-index: 560;
+    width: 50vw;
+    height: 100vh;
 }
 .rightModal {
     overflow-y: auto;
     position: fixed;
-    top:0px;
-    right:0px;
-    z-index:150;
-    width:50vw;
+    top: 0px;
+    right: 0px;
+    z-index: 150;
+    width: 50vw;
     height: 100vh;
 }
 
 .so {
-    position:absolute;
-    left:0;
-    z-index:520;
+    position: absolute;
+    left: 0;
+    z-index: 580;
     list-style-type: none;
-    max-height:500px;
-    overflow-y:auto;
+    max-height: 500px;
+    overflow-y: auto;
 }
 .absolutely {
-    position:absolute;
-    top:0;
-    right:0px;
-    z-index:170;
+    position: absolute;
+    top: 0;
+    right: 0px;
+    z-index: 170;
 }
 .absolutelytwo {
-    position:absolute;
-    top:150px;
-    right:100px;
-    z-index:160;
+    position: absolute;
+    top: 150px;
+    right: 100px;
+    z-index: 160;
 }
 
 .logoGame {
-    position:absolute;
-    top:289px;
-    left:114px;
-    z-index:102;
+    position: absolute;
+    top: 289px;
+    left: 114px;
+    z-index: 102;
 }
 
 .plus {
-    position:absolute;
-    top:165.5px;
-    z-index:102;
-    left:50px;
+    position: absolute;
+    top: 165.5px;
+    z-index: 102;
+    left: 50px;
 }
-.minus {   
-   position:absolute;
-   top:165.5px;
-   right:50px;
-   z-index:102;
+.minus {
+    position: absolute;
+    top: 165.5px;
+    right: 50px;
+    z-index: 102;
 }
 .plustwo {
-   position:absolute;
-   top:493px;
-   z-index:102;
-   right:50px;
+    position: absolute;
+    top: 493px;
+    z-index: 102;
+    right: 50px;
 }
-.minustwo {   
-  position:absolute;
-  top:493px;
-  left:50px;
-  z-index:102;
+.minustwo {
+    position: absolute;
+    top: 493px;
+    left: 50px;
+    z-index: 102;
 }
 .lifeOne {
-    display:flex;
+    display: flex;
     align-items: center;
     justify-content: center;
-    text-align:center;
+    text-align: center;
     font-size: 70px;
-   position:absolute;
-   top:131.5px;
-   left:144px;
-   z-index:50;
-   height:100px;
-   width:100px;
+    position: absolute;
+    top: 131.5px;
+    left: 144px;
+    z-index: 50;
+    height: 100px;
+    width: 100px;
 }
 .lifeTwo {
-    display:flex;
+    display: flex;
     align-items: center;
     justify-content: center;
-    text-align:center;
-    font-size:70px;
-    position:absolute;
-    left:144px;
-    height:100px;
-    width:100px;
-    z-index:50;
-    top:485px;
+    text-align: center;
+    font-size: 70px;
+    position: absolute;
+    left: 144px;
+    height: 100px;
+    width: 100px;
+    z-index: 50;
+    top: 485px;
 }
 
 .shroud {
-    position:absolute;
+    position: absolute;
     width: 100vw;
-    height:100vh;
-    z-index:101;
+    height: 100vh;
+    z-index: 101;
 }
 
-.deckContainerRight{
-    font-size:20px;
-    display:flex;
+.deckContainerRight {
+    font-size: 20px;
+    display: flex;
     justify-content: center;
     align-items: center;
-    min-width:150px;
-    z-index:160;
-    min-width:150px;
-  
+    min-width: 150px;
+    z-index: 160;
+    min-width: 150px;
 }
 ul {
     list-style-type: none;
-
 }
-.deckNameRight{
-    padding:20px;
-    padding-right:0px;
-    z-index:102;
-    font-size:20px;
+.deckNameRight {
+    padding: 20px;
+    padding-right: 0px;
+    z-index: 102;
+    font-size: 20px;
 }
-.anotherWrapper{
-    display:flex;
+.anotherWrapper {
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position:absolute;
+    position: absolute;
     top: 0;
-    right:0;
-    width:50vw;
-    height:100vh;
+    right: 0;
+    width: 50vw;
+    height: 100vh;
 }
 .win {
-    position:absolute;
-    top:289px;
-    z-index:150;
-    right:0px;
-
+    position: absolute;
+    top: 289px;
+    z-index: 150;
+    right: 0px;
 }
 .lose {
-    position:absolute;
-    top:289px;
-    left:100px;
-    z-index:150;
+    position: absolute;
+    top: 289px;
+    left: 100px;
+    z-index: 150;
     left: 0px;
 }
-.deckStatsContainer{
+.deckStatsContainer {
     overflow-y: auto;
-    overflow-x:hidden;
+    overflow-x: hidden;
     position: absolute;
-    top:100px;
-    left:0;
-    z-index:24;
-    width:100vw;
+    top: 100px;
+    left: 0;
+    z-index: 24;
+    width: 100vw;
     height: 667.33px;
 }
-.containerOfDecks{
-    position:relative;
-    height:98px;
+.containerOfDecks {
+    position: relative;
+    height: 98px;
 }
-.conto{
-    position:relative;
-    bottom:100px;
-    left:120px;
+.conto {
+    position: relative;
+    bottom: 100px;
+    left: 120px;
 }
-.to{
-    margin-right:10px;
+.to {
+    margin-right: 10px;
 }
 .bigger {
-    font-size:25px;
-    margin-bottom:0;
+    font-size: 25px;
+    margin-bottom: 0;
 }
 .smaller {
-    margin-top:2px;
+    margin-top: 2px;
 }
-.nodeco{
+.nodeco {
     text-decoration: none;
     color: white;
 }
-.namey{
-    z-index:200;
+.namey {
+    z-index: 200;
     position: absolute;
-    top:100px;
-    left:50px;
+    top: 100px;
+    left: 50px;
 }
 .decky {
-    z-index:200;
-    position:absolute;
-    top:85px;
-    left:10px;
+    z-index: 200;
+    position: absolute;
+    top: 85px;
+    left: 10px;
 }
 .savey {
     z-index: 200;
-    position:absolute;
+    position: absolute;
     top: 98px;
     right: 13px;
-
-
 }
 .inputy {
     font-family: myFirstFont;
-    font-size:23px;
-    color:white;
-    z-index:205;
+    font-size: 23px;
+    color: white;
+    z-index: 205;
     position: absolute;
-    top:106px;
-    left:89px;
-    width:221px;
-    height:25px;
+    top: 106px;
+    left: 89px;
+    width: 221px;
+    height: 25px;
     border: none;
-    background-color:black;
+    background-color: black;
 }
-input:focus{
+input:focus {
     outline: none;
 }
 .searchey {
     z-index: 200;
-    position:absolute;
+    position: absolute;
     top: 200px;
     left: 12px;
 }
 
-.mainey{
+.mainey {
     z-index: 200;
-    position:absolute;
+    position: absolute;
     top: 203px;
     left: 17px;
-    height:37px;
-    width:340px;
+    height: 37px;
+    width: 340px;
     border: none;
     background-color: rgba(0, 0, 0, 0);
     font-family: myFirstFont;
-    font-size:26px;
-    color:black;
+    font-size: 26px;
+    color: black;
 }
 .newy {
     z-index: 200;
-    position:absolute;
+    position: absolute;
     top: 240px;
     left: 12px;
-    background-color:black;
-    width:350px;
-    height:39px;
+    background-color: black;
+    width: 350px;
+    height: 39px;
 }
 .newyCont {
-    padding-left:5px;
+    padding-left: 5px;
     font-family: myFirstFont;
-    font-size:20px;
-    margin-top:10px
+    font-size: 20px;
+    margin-top: 10px;
 }
 .cardnr {
     z-index: 200;
-    position:absolute;
+    position: absolute;
     top: 300px;
     left: 12px;
 }
 .cardlist {
     z-index: 200;
-    position:absolute;
+    position: absolute;
     top: 300px;
     left: 12px;
 }
 .biggy {
- 
     z-index: 200;
-    position:absolute;
+    position: absolute;
     top: 300px;
     left: 12px;
-    height:286px;
-    width:353px;
-    overflow-y:auto;
+    height: 286px;
+    width: 353px;
+    overflow-y: auto;
 }
 .yas {
-    position:relative;
-    right:2px;
-    display:flex;
+    position: relative;
+    right: 2px;
+    display: flex;
     flex-direction: row;
-    margin-left:1px;
-    margin-top:3px;
-    height:40px;
+    margin-left: 1px;
+    margin-top: 3px;
+    height: 40px;
     align-items: center;
 }
-.smallyLeft{
-    position:absolute;
-    height:45px;
-    width:48px; */
-    border:2px solid red;
-
+.smallyLeft {
+    position: absolute;
+    height: 45px;
+    width: 48px;
+    */border: 2px solid red;
 }
-.mo{
-    margin:0px;
+.mo {
+    margin: 0px;
 }
 
 .numberyo {
-    margin-left:0px;
+    margin-left: 0px;
     font-family: myFirstFont;
     font-size: 18px;
 }
@@ -674,20 +699,20 @@ input:focus{
     top: 10px;
     right:10px;
 } */
-.cardtotalmain{
-    z-index:300;
+.cardtotalmain {
+    z-index: 300;
     position: absolute;
-    bottom:2px;
-    padding-left:15px;
+    bottom: 2px;
+    padding-left: 15px;
 }
-.cdnmr{
-    width:55px;
+.cdnmr {
+    width: 55px;
     text-align: center;
 }
 .cdname {
-    padding-left:8px;
-    flex-grow:1;
+    padding-left: 8px;
+    flex-grow: 1;
 }
- .pl {
-     margin-right:5px;
+.pl {
+    margin-right: 5px;
 }
