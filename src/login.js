@@ -31,6 +31,8 @@ export default class Login extends React.Component {
         return (
             <div className="inputField">
                 <div className="shadowWrapper">
+                    <img className="nickyBTwo" src="nicky_b.jpg" />
+                    <img className="logoReg" src="logothree.png" />
                     <h4 className="registerIntro">
                         Fill in your email and address to access your account.
                     </h4>
@@ -50,14 +52,19 @@ export default class Login extends React.Component {
                 <br />
                 <input
                     autoComplete="new-password"
-                    className="inputRegistration"
+                    className="inputRegistration two"
                     type="password"
                     name="password"
                     placeholder="password"
                     onChange={e => this.handleChange(e)}
                 />
                 <br />
-                <button onClick={e => this.submit(e)}>Log in</button>
+                <button
+                    className="loginRegistration"
+                    onClick={e => this.submit(e)}
+                >
+                    Log in
+                </button>
             </div>
         );
     }

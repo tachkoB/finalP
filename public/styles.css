@@ -87,6 +87,10 @@ body {
 .inputRegistration.four {
     top: 420px;
 }
+.loginRegistration {
+    position: absolute;
+    top: 410px;
+}
 
 button {
     font-family: myFirstFont;
