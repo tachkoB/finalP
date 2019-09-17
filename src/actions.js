@@ -5,8 +5,8 @@ export function setInitial() {
     return {
         type: "SET_INITIAL",
         count: 20,
-        counttwo:20,
-        visible:false,
+        counttwo: 20,
+        visible: false,
         logolink: "logogame.png",
         modalleft: false,
         modalright: false,
@@ -16,8 +16,8 @@ export function setInitial() {
         restartlink: false,
         winlink: false,
         loselink: false,
-        leftmodalvisible:false,
-        rightmodalvisible:false,
+        leftmodalvisible: false,
+        rightmodalvisible: false,
         deckname: "Decks"
     };
 }
@@ -25,174 +25,169 @@ export function setInitialTwo(deck) {
     return {
         type: "SET_INITIALTWO",
         count: 20,
-        counttwo:20,
-        visible:false,
+        counttwo: 20,
+        visible: false,
         logolink: "logogame.png",
         modalleft: false,
         modalright: false,
         upperlink: "upper.png",
         lowerlink: "lower.png",
         logovisible: true,
-        restartlink: false,
-        winlink: false,
-        loselink: false,
-        leftmodalvisible:false,
-        rightmodalvisible:false,
+        // restartlink: false,
+        // winlink: false,
+        // loselink: false,
+        leftmodalvisible: false,
+        rightmodalvisible: false,
         deckname: deck
     };
 }
 
-export async function selectDeck(deck, id){
+export async function selectDeck(deck, id) {
     return {
         type: "SELECT_DECK",
         deckname: deck,
-        deckid:id,
-        rightmodalvisible:false
+        deckid: id,
+        rightmodalvisible: false
     };
 }
 
-export async function win(id){
-    const {data} = await axios.post("/win", {
-        deckid:id
+export async function win(id) {
+    const { data } = await axios.post("/win", {
+        deckid: id
     });
     return {
         type: "WIN",
         logolink: "logogame.png",
         upperlink: "upper.png",
         lowerlink: "lower.png",
-        logovisible:true,
+        logovisible: true,
         middlemodal: false,
         count: 20,
         counttwo: 20
     };
 }
 
-export async function lose(id){
-    const {data} = await axios.post("/loss", {
-        deckid:id
+export async function lose(id) {
+    const { data } = await axios.post("/loss", {
+        deckid: id
     });
     return {
-        type:"LOSS",
+        type: "LOSS",
         logolink: "logogame.png",
         upperlink: "upper.png",
         lowerlink: "lower.png",
-        logovisible:true,
+        logovisible: true,
         middlemodal: false,
         count: 20,
         counttwo: 20
     };
 }
 
-
-export async function leftModalVisible(){
+export async function leftModalVisible() {
     return {
         type: "LEFT_MODAL",
         leftmodalvisible: true
     };
 }
-export async function leftModalVisibleTwo(){
+export async function leftModalVisibleTwo() {
     return {
         type: "LEFT_MODALTWO",
         leftmodalvisibletwo: true
     };
 }
-export async function rightModalVisible(){
+export async function rightModalVisible() {
     return {
         type: "RIGHT_MODAL",
         rightmodalvisible: true
     };
 }
-export async function editDeck(id){
+export async function editDeck(id) {
     console.log("THE DECKID: ", id);
     const { data } = await axios.get(`/getDeck/${id}.json`);
     return {
         type: "GET_DECK"
     };
 }
-export async function shrouder(){
+export async function shrouder() {
     return {
         type: "SHROUDER",
         leftmodalvisible: false,
-        rightmodalvisible:false,
+        rightmodalvisible: false,
         leftmodalvisibletwo: false,
-        leftmodalvisiblethree:false
+        leftmodalvisiblethree: false
     };
 }
-export async function middleModal(){
+export async function middleModal() {
     return {
         type: "MIDDLE_MODAL",
         restartlink: "restart.png",
         upperlink: "upperopen.png",
         lowerlink: "loweropen.png",
-        logovisible:false,
+        logovisible: false,
         middlemodal: true,
         loselink: "lose.png",
         winlink: "win.png"
     };
 }
 
-
-
-
-
 export function playerOneReduce(count) {
     return {
         type: "PLONE_REDUCE",
-        count: count-1,
+        count: count - 1
     };
 }
 export function playerOneAdd(count) {
     return {
         type: "PLONE_ADD",
-        count: count+1,
+        count: count + 1
     };
 }
 export function playerTwoReduce(counttwo) {
     return {
         type: "PLTWO_REDUCE",
-        counttwo: counttwo-1,
+        counttwo: counttwo - 1
     };
 }
 export function playerTwoAdd(counttwo) {
     return {
         type: "PLTWO_ADD",
-        counttwo: counttwo+1,
+        counttwo: counttwo + 1
     };
 }
-export function setVisible(){
+export function setVisible() {
     return {
         type: "SET_VISIBLE",
         visible: true
     };
 }
 
-export function addMainboard(maincard){
+export function addMainboard(maincard) {
     return {
         type: "ADD_MAINBOARD",
         cardind: {
-            maincard : maincard,
-            cardnr : 1       
+            maincard: maincard,
+            cardnr: 1
         }
     };
 }
-export function addSideboard(sidecard){
+export function addSideboard(sidecard) {
     return {
         type: "ADD_SIDEBOARD",
-        cardindtwo:{
+        cardindtwo: {
             sidecard: sidecard,
-            cardnrtwo:1
+            cardnrtwo: 1
         }
     };
 }
-export function incrementCard(maincard) {   
-    console.log("wooo: ", maincard); 
+export function incrementCard(maincard) {
+    console.log("wooo: ", maincard);
     return {
         type: "INCREMENT_MAINBOARD",
         maincard: maincard
-    };  
+    };
 }
-export function hideItTwo(){
-    return{
+export function hideItTwo() {
+    return {
         type: "HIDE_THREE",
         leftmodalvisiblethree: false
     };
@@ -200,12 +195,12 @@ export function hideItTwo(){
 export function decrementCard(maincard) {
     return {
         type: "DECREMENT_MAINBOARD",
-        maincard:maincard   
+        maincard: maincard
     };
 }
-export function leftModalVisibleThree(){
+export function leftModalVisibleThree() {
     return {
-        type:"SHOW_THREE",
+        type: "SHOW_THREE",
         leftmodalvisiblethree: true
     };
 }
@@ -214,7 +209,6 @@ export function incrementCardTwo(sidecard) {
     return {
         type: "INCREMENT_SIDEBOARD",
         sidecard: sidecard
-
     };
 }
 
@@ -224,7 +218,7 @@ export function decrementCardTwo(sidecard) {
         sidecard: sidecard
     };
 }
-export function setInitialCard(){
+export function setInitialCard() {
     return {
         type: "SET_CARD",
         cardnr: 1,
@@ -233,21 +227,22 @@ export function setInitialCard(){
 }
 export async function getDecks() {
     const { data } = await axios.get("/getDecks/");
+    console.log("data actions", data);
+
     return {
         type: "GET_DECKS",
         decks: data.data
     };
 }
 
-export async function hideIt(){
+export async function hideIt() {
     return {
         type: "HIDE_TWO",
         leftmodalvisibletwo: false
     };
 }
 
-
-export async function addDeck(deckname, maindeck, sidedeck){  
+export async function addDeck(deckname, maindeck, sidedeck) {
     await axios.post("/newdeck", {
         deckname: deckname,
         mainboard: maindeck,
@@ -260,4 +255,3 @@ export async function addDeck(deckname, maindeck, sidedeck){
         deckname: ""
     };
 }
-

@@ -14,7 +14,6 @@ export default class App extends React.Component {
     }
     componentDidMount() {
         axios.get("/users").then(results => {
-            console.log("this is the id I need: ", results.data.data.id);
             this.setState({
                 id: results.data.data.id,
                 first: results.data.data.first

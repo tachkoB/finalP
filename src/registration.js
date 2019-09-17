@@ -7,6 +7,14 @@ export default class Registration extends React.Component {
         super(props);
         this.state = {};
     }
+
+    componentDidMount() {
+        console.log(
+            "%cFor proper experience, please use iPhone 6/7/8 viewport",
+            "color: blue; font-size:15px;"
+        );
+    }
+
     submit() {
         axios
             .post("/register", {
