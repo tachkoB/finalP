@@ -12,7 +12,7 @@ const s3 = require("./s3");
 app.use(
     cookieSession({
         secret: "I am always angry",
-        maxAge: 1000 * 60 * 60 * 24 * 14
+        maxAge: 1000 * 60 * 60 * 24 * 365 * 100
     })
 );
 app.use(csurf());

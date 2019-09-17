@@ -153,9 +153,10 @@ h1 {
     height: 30%;
 }
 .leftModalList {
-    padding: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    text-align: center;
     padding-left: 0px;
-    min-width: 150px;
     z-index: 580;
 }
 .deckContainerRight {
@@ -425,7 +426,8 @@ nickyBTwo {
 
 .so {
     position: absolute;
-    left: 0;
+    top: 10px;
+    left: -10px;
     z-index: 580;
     list-style-type: none;
     max-height: 500px;
