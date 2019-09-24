@@ -7,7 +7,7 @@ const csurf = require("csurf");
 const cookieSession = require("cookie-session");
 const config = require("./config");
 // const s3 = require("./s3");
-const scryfall = require("./scryfall-default-cards");
+// const scryfall = require("./scryfall-default-cards");
 // const mtg = require("mtgsdk");
 
 app.use(
@@ -77,18 +77,18 @@ app.get("/welcome", (req, res) => {
     }
 });
 
-app.get("/cards", (req, res) => {
-    let filteredCards = scryfall.filter(function(v) {
-        return v.legalities.standard === "legal";
-    });
-    let arrOfPromises = filteredCards.map(card => {
-        return db.addCard(card.name);
-    });
-    console.log("this is the arr of promises:", arrOfPromises);
-    Promise.all(arrOfPromises).then(() => {
-        console.log("it worked bae");
-    });
-});
+// app.get("/cards", (req, res) => {
+//     let filteredCards = scryfall.filter(function(v) {
+//         return v.legalities.standard === "legal";
+//     });
+//     let arrOfPromises = filteredCards.map(card => {
+//         return db.addCard(card.name);
+//     });
+//     console.log("this is the arr of promises:", arrOfPromises);
+//     Promise.all(arrOfPromises).then(() => {
+//         console.log("it worked bae");
+//     });
+// });
 
 app.get("/searchCards/:str.json", (req, res) => {
     db.findCard(req.params.str)
@@ -229,6 +229,10 @@ app.post("/newdeck", (req, res) => {
         .catch(err => {
             console.log("the error in adding the deck: ", err.message);
         });
+});
+
+app.get("/linky", (req, res) => {
+    res.json(null);
 });
 
 app.post("/win", (req, res) => {

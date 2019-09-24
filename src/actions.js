@@ -161,7 +161,8 @@ export function setVisible() {
     };
 }
 
-export function addMainboard(maincard) {
+export async function addMainboard(maincard) {
+    await axios.get("/linky", null);
     return {
         type: "ADD_MAINBOARD",
         cardind: {
