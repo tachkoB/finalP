@@ -93,18 +93,48 @@ export default function(state = {}, action) {
         };
     }
     if (action.type == "ADD_MAINBOARD") {
-        if (state.maincard) {
-            state = {
-                ...state,
-                maincard: [...state.maincard, action.cardind]
-            };
-        } else if (!state.maincard) {
+        //here I need to loop through the array and check if the name exists. if it does,
+        //I increase cardnr, if not, add the card to the array
+        if (!state.maincard) {
             state = {
                 ...state,
                 maincard: [action.cardind]
             };
+        } else {
+            const checkForDuplicates = state.maincard;
+            var test = checkForDuplicates.some(el => {
+                return el.maincard == action.cardind.maincard;
+            });
+            if (test) {
+                console.log("here bae: ", state.cardnr);
+                state = {
+                    ...state,
+                    cardnr: state.cardind.cardnr + 1
+                };
+            } else {
+                state = {
+                    ...state,
+                    maincard: [...state.maincard, action.cardind]
+                };
+                console.log("not working bae");
+            }
+
+            console.log("checkfordupl: ", checkForDuplicates);
         }
     }
+
+    //     if (state.maincard) {
+    //         state = {
+    //             ...state,
+    //             maincard: [...state.maincard, action.cardind]
+    //         };
+    //     } else if (!state.maincard) {
+    //         state = {
+    //             ...state,
+    //             maincard: [action.cardind]
+    //         };
+    //     }
+    // }
 
     if (action.type == "ADD_SIDEBOARD") {
         if (state.sidecard) {
