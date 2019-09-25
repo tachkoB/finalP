@@ -92,9 +92,8 @@ export default function(state = {}, action) {
             visible: action.visible
         };
     }
+
     if (action.type == "ADD_MAINBOARD") {
-        //here I need to loop through the array and check if the name exists. if it does,
-        //I increase cardnr, if not, add the card to the array
         if (!state.maincard) {
             state = {
                 ...state,
@@ -102,39 +101,28 @@ export default function(state = {}, action) {
             };
         } else {
             const checkForDuplicates = state.maincard;
-            var test = checkForDuplicates.some(el => {
-                return el.maincard == action.cardind.maincard;
-            });
-            if (test) {
-                console.log("here bae: ", state.cardnr);
-                state = {
-                    ...state,
-                    cardnr: state.cardind.cardnr + 1
-                };
+            let checking = function(element) {
+                return element.maincard == action.cardind.maincard;
+            };
+            var truth = checkForDuplicates.some(checking);
+            if (truth) {
+                checkForDuplicates.forEach(el => {
+                    if (el.maincard == action.cardind.maincard) {
+                        el.cardnr++;
+                        state = {
+                            ...state,
+                            maincard: [...state.maincard]
+                        };
+                    }
+                });
             } else {
                 state = {
                     ...state,
                     maincard: [...state.maincard, action.cardind]
                 };
-                console.log("not working bae");
             }
-
-            console.log("checkfordupl: ", checkForDuplicates);
         }
     }
-
-    //     if (state.maincard) {
-    //         state = {
-    //             ...state,
-    //             maincard: [...state.maincard, action.cardind]
-    //         };
-    //     } else if (!state.maincard) {
-    //         state = {
-    //             ...state,
-    //             maincard: [action.cardind]
-    //         };
-    //     }
-    // }
 
     if (action.type == "ADD_SIDEBOARD") {
         if (state.sidecard) {
