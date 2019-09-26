@@ -1,6 +1,7 @@
 * {
     touch-action: manipulation;
     overflow-x: hidden;
+    overflow-y: auto;
 }
 
 body {
@@ -565,7 +566,8 @@ ul {
 }
 .containerOfDecks {
     position: relative;
-    height: 98px;
+    height: 100px;
+    overflow-y: hidden;
 }
 .conto {
     position: relative;
