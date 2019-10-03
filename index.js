@@ -124,7 +124,7 @@ app.get("*", (req, res) => {
 app.post("/register", (req, res) => {
     bc.hashPassword(req.body.password)
         .then(hash => {
-            db.addUser(req.body.first, req.body.last, req.body.email, hash)
+            db.addUser(req.body.first, req.body.email, hash)
                 .then(resp => {
                     req.session.userId = resp.rows[0].id;
                     console.log(req.session.userId);

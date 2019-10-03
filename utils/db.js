@@ -2,10 +2,10 @@ var spicedPg = require("spiced-pg");
 
 let db = spicedPg("postgres:andrejtachko:postgres@localhost:5432/mtg");
 
-exports.addUser = function addUser(first, last, email, password) {
+exports.addUser = function addUser(first, email, password) {
     return db.query(
-        `INSERT INTO users (first, last, email, password) VALUES($1, $2, $3, $4) RETURNING *`,
-        [first, last, email, password]
+        `INSERT INTO users (first, email, password) VALUES($1, $2, $3) RETURNING *`,
+        [first, email, password]
     );
 };
 
