@@ -3,11 +3,25 @@ import axios from "./axios";
 import { Link } from "react-router-dom";
 import Splash from "./Splash";
 
+const initialState = {
+    nameError: "",
+    emailError: "",
+    passwordError: "",
+    generalError: ""
+};
+
 export default class Registration extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            visibility: true
+            first: "",
+            email: "",
+            password: "",
+            visibility: true,
+            nameError: "",
+            emailError: "",
+            passwordError: "",
+            generalError: ""
         };
     }
 
@@ -19,30 +33,64 @@ export default class Registration extends React.Component {
                 });
                 console.log(this.state);
             }.bind(this),
-            3000
+            500
         );
         console.log(
             "%cFor proper experience, please use iPhone 6/7/8 viewport",
             "color: blue; font-size:15px;"
         );
     }
+    validate() {
+        let nameError = "";
+        let emailError = "";
+        let passwordError = "";
+        let generalError = "";
+        if (!this.state.first || !this.state.email || !this.state.password) {
+            generalError = "please fill in all the fields";
+        }
+        if (this.state.first.length < 3) {
+            nameError = "min. 3 charachters username";
+        }
+        if (!this.state.email.includes("@")) {
+            emailError = "Invalid email";
+        }
+        if (this.state.password.length < 8) {
+            passwordError = "password must be at least 8 characters long";
+        }
 
-    submit() {
-        axios
-            .post("/register", {
-                first: this.state.first,
-                email: this.state.email,
-                password: this.state.password
-            })
-            .then(res => {
-                if (res.data.success) {
-                    location.replace("/");
-                } else {
-                    this.setState({
-                        error: true
-                    });
-                }
-            });
+        if (generalError) {
+            this.setState({ generalError });
+        } else if (nameError) {
+            this.setState({ nameError });
+        } else if (emailError) {
+            this.setState({ emailError });
+        } else if (passwordError) {
+            this.setState({ passwordError });
+        } else return true;
+    }
+
+    submit(e) {
+        e.preventDefault();
+        this.setState(initialState);
+
+        const isValid = this.validate();
+        if (isValid) {
+            axios
+                .post("/register", {
+                    first: this.state.first,
+                    email: this.state.email,
+                    password: this.state.password
+                })
+                .then(res => {
+                    if (res.data.success) {
+                        location.replace("/");
+                    } else {
+                        this.setState({
+                            error: true
+                        });
+                    }
+                });
+        }
     }
 
     handleChange(e) {
@@ -67,40 +115,52 @@ export default class Registration extends React.Component {
                                 Life Counter & Deck Builder
                             </h4>
                         </div>
-                        {this.state.error && <div className="error">Oops</div>}
-                        <input
-                            className="inputRegistration one"
-                            name="first"
-                            placeholder="username"
-                            onChange={e => this.handleChange(e)}
-                        />
-                        <br />
-                        <input
-                            className="inputRegistration two"
-                            name="email"
-                            placeholder="email"
-                            onChange={e => this.handleChange(e)}
-                        />
+                        <form noValidate onSubmit={e => this.submit(e)}>
+                            <input
+                                noValidate
+                                className="inputRegistration one"
+                                name="first"
+                                placeholder="username"
+                                onChange={e => this.handleChange(e)}
+                            />
+                            <br />
+                            <div className="error">{this.state.nameError}</div>
+                            <input
+                                noValidate
+                                className="inputRegistration two"
+                                name="email"
+                                placeholder="email"
+                                onChange={e => this.handleChange(e)}
+                            />
 
-                        <br />
+                            <br />
+                            <div className="error">{this.state.emailError}</div>
+                            <div className="error">
+                                {this.state.generalError}
+                            </div>
 
-                        <input
-                            className="inputRegistration three"
-                            autocomplete="new-password"
-                            type="password"
-                            name="password"
-                            placeholder="password"
-                            onChange={e => this.handleChange(e)}
-                        />
+                            <input
+                                noValidate
+                                className="inputRegistration three"
+                                autocomplete="new-password"
+                                type="password"
+                                name="password"
+                                placeholder="password"
+                                onChange={e => this.handleChange(e)}
+                            />
 
-                        <br />
+                            <br />
+                            <div className="error">
+                                {this.state.passwordError}
+                            </div>
 
-                        <button
-                            className="buttonRegistration"
-                            onClick={e => this.submit(e)}
-                        >
-                            Register
-                        </button>
+                            <button
+                                type="submit"
+                                className="buttonRegistration"
+                            >
+                                Register
+                            </button>
+                        </form>
                         <br />
                         <div className="shadowWrapper">
                             <Link className="loginLink" to="/login">

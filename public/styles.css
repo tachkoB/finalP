@@ -101,6 +101,22 @@ body {
     color: white;
     height: 30px;
 }
+.error {
+    font-family: myFirstFont;
+    font-size: 12px;
+    padding-left: 8px;
+    top: 420px;
+    position: absolute;
+    margin-top: 7px;
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+    color: white;
+    height: 50px;
+    text-align: center;
+    margin-bottom: 10px;
+    color: yellow;
+}
 .buttonRegistration {
     position: absolute;
     top: 490px;
@@ -133,11 +149,7 @@ button {
     height: 6%;
     width: 6%;
 }
-.error {
-    text-align: center;
-    margin-bottom: 10px;
-    color: yellow;
-}
+
 .loginLink {
     color: #a3b86c;
     text-decoration: none;
